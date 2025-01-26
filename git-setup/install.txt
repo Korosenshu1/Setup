@@ -1,0 +1,9 @@
+To install:
+- vim-plug
+- zathura-pdf-poppler
+- *zsh/oh-my-zsh
+- .sty to cp in /home/username/texmf/tex/latex/sansiwona/sansiwona.sty
+
+Commands for sty files
+- kpsewhich -var-value=TEXMFHOME
+- kpsewhich filename.sty
