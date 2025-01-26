@@ -1,5 +1,0 @@
-To install:
-- vim-plug
-- zathura-pdf-poppler
-- *zsh/oh-my-zsh
-- .sty to cp in /home/username/texmf/tex/latex/sansiwona/sansiwona.sty
