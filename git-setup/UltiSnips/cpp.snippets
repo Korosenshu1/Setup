@@ -1,0 +1,45 @@
+snippet set "setup standard" b
+#include <iostream>
+#include <vector>
+#include <cassert>
+#include <algorithm>      
+using namespace std;
+
+int main(){
+	$0
+
+	return 0;
+}
+endsnippet
+
+snippet { "curly brackets" iA
+{$1}$0
+endsnippet
+
+snippet [ "square brackets" iA
+[$1]$0
+endsnippet
+
+snippet ( "round brackets" iA
+($1)$0
+endsnippet
+
+snippet for "for cycle" b
+for (int i = ${1:1}; i<=$2; ${3:i++}) {
+	$4
+}
+$0
+endsnippet
+
+snippet while "while cycle" b
+while ($1) {
+	$2
+}
+$0
+endsnippet
+
+snippet void "void" b
+void $2($1){
+	$0
+}
+endsnippet
