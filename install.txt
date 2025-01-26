@@ -7,5 +7,3 @@ To install:
 Commands for sty files
 - kpsewhich -var-value=TEXMFHOME
 - kpsewhich filename.sty
-
-PROVA
