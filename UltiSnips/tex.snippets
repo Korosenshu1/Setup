@@ -8,13 +8,12 @@ def env(name):
 	return x != '0' and y != '0'
 endglobal
 
-
-
-snippet tempart1 "Template article" b
-\documentclass[13pt, a4paper]{article}
+snippet tempart1 "Template matematica" b
+\documentclass[10pt, a4paper]{scrartcl}
 % Packages
-%\usepackage[margin=1.5in]{geometry}
+\usepackage[margin=1.25in]{geometry}
 \usepackage{index}
+\usepackage{stix}
 \makeindex
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -29,7 +28,7 @@ snippet tempart1 "Template article" b
 \usepackage{titlesec}
 \usepackage{xcolor}
 \usepackage{titling}
-\usepackage{hyperref}
+\usepackage[linktocpage]{hyperref}
 \usepackage{pgfplots}
 \usepackage{multicol}
 \setlength{\columnsep}{2em}
@@ -41,79 +40,17 @@ snippet tempart1 "Template article" b
 \usepackage{nicematrix}
 \usepackage{mathrsfs}
 \usepackage{mathtools}
-\usepackage{parskip}
+%\usepackage{parskip}
 \usepackage{pythonhighlight}
 \usepackage{enumerate}
 \usepackage{graphicx}
 \usepackage{tikz}
-\usetikzlibrary{decorations.pathreplacing,calligraphy}
 \usepackage[italian]{babel}
 
-\pgfplotsset{every tick label/.append style={font=\footnotesize}, compat = newest,
-simple/.style={
-axis x line = middle, axis y line = middle,
-    axis line style ={->,}
-    %xmin=-3, xmax=3.5,
-    %ymin=-2, ymax= 5.9,
-    xlabel style ={anchor=south west, font=\footnotesize},
-    ylabel style ={anchor= north west, font=\footnotesize},
-    xlabel = $x$,
-    ylabel = $y$
-}}
-
-%Captions
-\captionsetup[figure]{font=footnotesize,labelfont=footnotesize}
-\captionsetup[table]{font=footnotesize,labelfont=footnotesize}
-%Titlesec
-\titleformat{\section}
-{\fontsize{19}{20}\color{asdf}\bfseries}
-{\thesection.}
-{0.7em}
-{}[\titlerule]
-
-\hypersetup{colorlinks,breaklinks, linkcolor=[RGB]{74, 122, 164}}
-
-\newcommand\vertarrowbox[3][6ex]{%
-  \begin{array}[t]{@{}c@{}} #2 \
-  \left\uparrow\vcenter{\hrule height #1}\right.\kern-\nulldelimiterspace\
-  \makebox[0pt]{\scriptsize#3}
-  \end{array}%
-}
-\definecolor{asdf}{HTML}{4a7aa4}
-% Personalizza la formattazione della subsection
-\titleformat{\subsection}[block]{\fontsize{13}{25}\centering\bfseries\color{asdf}}{\thesubsection}{.5em}{}
-
-
-% Personalizza la formattazione della subsubsection
-\titleformat{\subsubsection}[block]{\fontsize{10}{25}\bfseries\centering\color{asdf}}{\thesubsubsection}{.5em}{}
-
-% Maketitle customization
-\renewcommand{\maketitle}{
-\begin{center}
-{\huge\bfseries\color{asdf}
-\thetitle}
-
-\vspace{0.05in}
-
-{\large\color{asdf}\theauthor}
-\end{center}
-}
-
 % Titles 
-\title{$1}
+\title{$0}
 \author{Manuel Deodato}
 \date{}
-
-
-%Tikiz axes
-     \pgfplotsset{simple/.append style={axis x line=middle, axis y line=middle, xlabel={$x$}, ylabel={$y$}}}
-
-%Evaluate symbol
-\DeclareMathOperator{\di}{d\!}
-\newcommand*\Eval[3]{\left.#1\right\rvert_{#2}^{#3}}
-
-
-
 
 %%%%% tcolorbox setup
 
@@ -175,70 +112,7 @@ axis x line = middle, axis y line = middle,
 
 \numberwithin{nota}{section}
 
-%%%%% Testo in sans serif
-% Pacchetto per il testo in sans-serif
-\usepackage[scaled]{helvet}
-\renewcommand\familydefault{\sfdefault}
 
-% Pacchetto per i contenuti matematici in sans-serif
-\usepackage{sansmath}
-\sansmath
-
-%%%%%%%%%% Lettere greche sans serif %%%%%%%%%%%%%%
-
-\DeclareSymbolFont{Greekletters}{OT1}{iwona}{m}{n}
-\DeclareSymbolFont{greekletters}{OML}{iwona}{m}{it}
-\DeclareMathSymbol{\Delta}{\mathord}{Greekletters}{"01}
-\DeclareMathSymbol{\Theta}{\mathord}{Greekletters}{"02}
-\DeclareMathSymbol{\Lambda}{\mathord}{Greekletters}{"03}
-\DeclareMathSymbol{\Xi}{\mathord}{Greekletters}{"04}
-\DeclareMathSymbol{\Pi}{\mathord}{Greekletters}{"05}
-\DeclareMathSymbol{\Sigma}{\mathord}{Greekletters}{"06}
-\DeclareMathSymbol{\Upsilon}{\mathord}{Greekletters}{"07}
-\DeclareMathSymbol{\Phi}{\mathord}{Greekletters}{"08}
-\DeclareMathSymbol{\Psi}{\mathord}{Greekletters}{"09}
-\DeclareMathSymbol{\Omega}{\mathord}{Greekletters}{"0A}
-
-\DeclareMathSymbol{\alpha}{\mathord}{greekletters}{"0B}
-\DeclareMathSymbol{\beta}{\mathord}{greekletters}{"0C}
-\DeclareMathSymbol{\gamma}{\mathord}{greekletters}{"0D}
-\DeclareMathSymbol{\delta}{\mathord}{greekletters}{"0E}
-\DeclareMathSymbol{\epsilon}{\mathord}{greekletters}{"0F}
-\DeclareMathSymbol{\zeta}{\mathord}{greekletters}{"10}
-\DeclareMathSymbol{\eta}{\mathord}{greekletters}{"11}
-\DeclareMathSymbol{\theta}{\mathord}{greekletters}{"12}
-\DeclareMathSymbol{\iota}{\mathord}{greekletters}{"13}
-\DeclareMathSymbol{\kappa}{\mathord}{greekletters}{"14}
-\DeclareMathSymbol{\lambda}{\mathord}{greekletters}{"15}
-\DeclareMathSymbol{\mu}{\mathord}{greekletters}{"16}
-\DeclareMathSymbol{\nu}{\mathord}{greekletters}{"17}
-\DeclareMathSymbol{\xi}{\mathord}{greekletters}{"18}
-\DeclareMathSymbol{\pi}{\mathord}{greekletters}{"19}
-\DeclareMathSymbol{\rho}{\mathord}{greekletters}{"1A}
-\DeclareMathSymbol{\sigma}{\mathord}{greekletters}{"1B}
-\DeclareMathSymbol{\tau}{\mathord}{greekletters}{"1C}
-\DeclareMathSymbol{\upsilon}{\mathord}{greekletters}{"1D}
-\DeclareMathSymbol{\phi}{\mathord}{greekletters}{"1E}
-\DeclareMathSymbol{\chi}{\mathord}{greekletters}{"1F}
-\DeclareMathSymbol{\psi}{\mathord}{greekletters}{"20}
-\DeclareMathSymbol{\omega}{\mathord}{greekletters}{"21}
-\DeclareMathSymbol{\varepsilon}{\mathord}{greekletters}{"22}
-\DeclareMathSymbol{\vartheta}{\mathord}{greekletters}{"23}
-\DeclareMathSymbol{\varpi}{\mathord}{greekletters}{"24}
-\DeclareMathSymbol{\varrho}{\mathord}{greekletters}{"25}
-\DeclareMathSymbol{\varsigma}{\mathord}{greekletters}{"26}
-\DeclareMathSymbol{\varphi}{\mathord}{greekletters}{"27}
-\DeclareMathSymbol{\Gamma}{\mathord}{greekletters}{"00}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%% Numero delle equazioni in formato a.b
-\numberwithin{equation}{section}
-%%%%%
-
-%%%%%%%%%% Personalizzazione numeri lista
-\renewcommand{\theenumi}{(\arabic{enumi})}
 
 %%%%%%%%%% Medie con integrali multipli
 \def\Yint#1{\mathchoice
@@ -264,355 +138,97 @@ axis x line = middle, axis y line = middle,
    % consider using "\mkern-7.5mu" if esint package is loaded
 \def\titiltlongdash{\rotatebox[origin=c]{15}{$\tilongdash$}}
 \def\fiiint{\Zint\titiltlongdash}
-
-\setcounter{tocdepth}{1}
-\begin{document}
-\maketitle
-\tableofcontents 
-\newpage
-\section{$2}
-
-$0
-
-
-
-
-
-
-
-
-\end{document}
-endsnippet
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-snippet tempart2 "Template article 2" b
-\documentclass[13pt, a4paper]{article}
-% Packages
-%\usepackage[margin=1.5in]{geometry}
-\usepackage{index}
-\makeindex
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{tcolorbox}
-\tcbuselibrary{theorems}
-\tcbuselibrary{skins}
-\tcbuselibrary{breakable}
-\usepackage{varwidth}
-\usepackage{textcomp}
-\usepackage{amsmath, amssymb}
-\usepackage{esint}
-\usepackage{titlesec}
-\usepackage{xcolor}
-\usepackage{titling}
-\usepackage{hyperref}
-\usepackage{pgfplots}
-\usepackage{multicol}
-\setlength{\columnsep}{2em}
-\usepackage{caption}
-\usepackage{amsthm}
-\usepackage{import}
-\usepackage{cancel}
-\usepackage{caption}
-\usepackage{nicematrix}
-\usepackage{mathrsfs}
-\usepackage{mathtools}
-\usepackage{parskip}
-\usepackage{pythonhighlight}
-\usepackage{enumerate}
-\usepackage{graphicx}
-\usepackage{tikz}
-\usetikzlibrary{decorations.pathreplacing,calligraphy}
-\usepackage[italian]{babel}
-
-\pgfplotsset{every tick label/.append style={font=\footnotesize}, compat = newest,
-simple/.style={
-axis x line = middle, axis y line = middle,
-    axis line style ={->,}
-    %xmin=-3, xmax=3.5,
-    %ymin=-2, ymax= 5.9,
-    xlabel style ={anchor=south west, font=\footnotesize},
-    ylabel style ={anchor= north west, font=\footnotesize},
-    xlabel = $x$,
-    ylabel = $y$
-}}
 
 %Captions
 \captionsetup[figure]{font=footnotesize,labelfont=footnotesize}
 \captionsetup[table]{font=footnotesize,labelfont=footnotesize}
 %Titlesec
 \titleformat{\section}
-{\fontsize{19}{20}\color{asdf}\bfseries\sffamily}
-{\thesection.}
+{\fontsize{15}{20}\sffamily\scshape}
+{\normalfont\color{gray}{\fontsize{20}{20}\selectfont\thesection}}
 {0.7em}
-{}[\titlerule]
-
+{}
 \hypersetup{colorlinks,breaklinks, linkcolor=[RGB]{74, 122, 164}}
-
-\newcommand\vertarrowbox[3][6ex]{%
-  \begin{array}[t]{@{}c@{}} #2 \
-  \left\uparrow\vcenter{\hrule height #1}\right.\kern-\nulldelimiterspace\
-  \makebox[0pt]{\scriptsize#3}
-  \end{array}%
-}
 \definecolor{asdf}{HTML}{4a7aa4}
 % Personalizza la formattazione della subsection
-\titleformat{\subsection}[block]{\fontsize{13}{25}\centering\bfseries\color{asdf}\sffamily}{\thesubsection}{.5em}{}
+\titleformat{\subsection}[block]{\fontsize{12}{20}\bfseries}{\normalfont\thesubsection}{.5em}{}
 
 
 % Personalizza la formattazione della subsubsection
-\titleformat{\subsubsection}[block]{\fontsize{10}{25}\bfseries\centering\color{asdf}\sffamily}{\thesubsubsection}{.5em}{}
+\titleformat{\subsubsection}[block]{\fontsize{10}{20}\bfseries}{\normalfont\thesubsubsection}{.5em}{}
 
 % Maketitle customization
 \renewcommand{\maketitle}{
 \begin{center}
-{\huge\bfseries\color{asdf}
-\thetitle}
+{\sffamily
+{\fontsize{20}{20}\selectfont\MakeUppercase\thetitle}}
 
-\vspace{0.05in}
+\vspace{0.2in}
 
-{\large\sc\color{asdf}\theauthor}
+{\large\scshape\sffamily\theauthor}
 \end{center}
 }
-
-% Titles 
-\title{$1}
-\author{Manuel Deodato}
-\date{}
-
-
-%Tikiz axes
-     \pgfplotsset{simple/.append style={axis x line=middle, axis y line=middle, xlabel={$x$}, ylabel={$y$}}}
 
 %Evaluate symbol
 \DeclareMathOperator{\di}{d\!}
 \newcommand*\Eval[3]{\left.#1\right\rvert_{#2}^{#3}}
 
-
-
-
-%%%%% tcolorbox setup
-
-% Teorema e proposizione
-\definecolor{propcolor}{HTML}{4A7AA4}
-\definecolor{thcolor}{HTML}{9ab7d3}
-
-\newtheoremstyle{teocolor}
-{\topsep}
-{\topsep}
-{}
-{}
-{\color{thcolor}\bfseries\sffamily}
-{.}
-{.5em}
-{}
-\theoremstyle{teocolor}
-\newtheorem{teorema}{Teorema}
-
-
-\tcolorboxenvironment{teorema}{blanker,breakable,left=5mm,before skip=10pt,after skip=10pt, borderline west={1mm}{0pt}{thcolor}}
-
-\numberwithin{teorema}{subsection}
-\newtheoremstyle{procolor}
-{\topsep}
-{\topsep}
-{}
-{}
-{\color{propcolor}\bfseries\sffamily}
-{.}
-{.5em}
-{}
-\theoremstyle{procolor}
-\newtheorem{prop}{Proposizione}
-
-\tcolorboxenvironment{prop}{blanker,breakable,left=5mm,before skip=10pt,after skip=10pt, borderline west={1mm}{0pt}{propcolor}}
-
-\numberwithin{prop}{subsection}
-
-
-% Definizione
-\definecolor{greendef}{HTML}{3c7846}
-
-\newtheoremstyle{defcolor}
-{\topsep}
-{\topsep}
-{}
-{}
-{\color{greendef}\bfseries\sffamily}
-{.}
-{.5em}
-{}
-\theoremstyle{defcolor}
-\newtheorem{definizione}{Definizione}
-
-
-\tcolorboxenvironment{definizione}{blanker,breakable,left=5mm,before skip=10pt,after skip=10pt, borderline west={1mm}{0pt}{greendef}}
-
-\numberwithin{definizione}{subsection}
-
-% Esempio
-\definecolor{empurple}{HTML}{6e5e89}
-\newtheoremstyle{emcolor}
-{\topsep}
-{\topsep}
-{}
-{}
-{\color{empurple}\bfseries\sffamily}
-{.}
-{.5em}
-{}
-\theoremstyle{emcolor}
-
-\newtheorem{esempio}{Esempio}
-
-
-\tcolorboxenvironment{esempio}{blanker,breakable,left=5mm,before skip=10pt,after skip=10pt, borderline west={1mm}{0pt}{empurple}}
-
-\numberwithin{esempio}{subsection}
-
-
-% Lemma e Corollario
-\definecolor{lemcor}{HTML}{a78d8a}
-\newtheoremstyle{lemcol}
-{\topsep}
-{\topsep}
-{}
-{}
-{\color{lemcor}\bfseries\sffamily}
-{.}
-{.5em}
-{}
-\theoremstyle{lemcol}
-\newtheorem{lemma}{Lemma}
-\newtheorem{corollario}{Corollario}
-
-
-\tcolorboxenvironment{corollario}{blanker,breakable,left=5mm,before skip=10pt,after skip=10pt, borderline west={1mm}{0pt}{lemcor}}
-\tcolorboxenvironment{lemma}{blanker,breakable,left=5mm,before skip=10pt,after skip=10pt, borderline west={1mm}{0pt}{lemcor}}
-
-\numberwithin{corollario}{subsection}
-\numberwithin{lemma}{subsection}
-
-
-
-% Osservazione
-\definecolor{coloros}{HTML}{6e5e89}
-\newtheoremstyle{obscol}
-{\topsep}
-{\topsep}
-{}
-{}
-{\color{coloros}\bfseries\sffamily}
-{.}
-{.5em}
-{}
-\theoremstyle{obscol}
-\newtheorem{obs}{Osservazione}
-
-
-\tcolorboxenvironment{obs}{blanker,breakable,left=5mm,before skip=10pt,after skip=10pt, borderline west={1mm}{0pt}{coloros}}
-
-\numberwithin{obs}{subsection}
-
 %%%%%%% Numero delle equazioni in formato a.b
-\numberwithin{equation}{section}
+\numberwithin{equation}{subsection}
 %%%%%
 
 %%%%%%%%%% Personalizzazione numeri lista
 \renewcommand{\theenumi}{(\arabic{enumi})}
 
-%%%%%%%%%% Medie con integrali multipli
-\def\Yint#1{\mathchoice
-    {\YYint\displaystyle\textstyle{#1}}%
-    {\YYint\textstyle\scriptstyle{#1}}%
-    {\YYint\scriptstyle\scriptscriptstyle{#1}}%
-    {\YYint\scriptscriptstyle\scriptscriptstyle{#1}}%
-      \!\iint}
-\def\YYint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\iint}$}
-    \vcenter{\hbox{$#2#3$}}\kern-.51\wd0}}
-\def\longdash{{-}\mkern-3.5mu{-}} 
-   % consider using "\mkern-7.5mu" if esint package is loaded
-\def\tiltlongdash{\rotatebox[origin=c]{15}{$\longdash$}}
-\def\fiint{\Yint\tiltlongdash}
-
-\def\Zint#1{\mathchoice
-    {\YYint\displaystyle\textstyle{#1}}%
-    {\YYint\textstyle\scriptstyle{#1}}%
-    {\YYint\scriptstyle\scriptscriptstyle{#1}}%
-    {\YYint\scriptscriptstyle\scriptscriptstyle{#1}}%
-      \!\iiint}
-      \def\tilongdash{\mkern6mu{-}\mkern-4mu{-}\mkern-5mu{-}} 
-   % consider using "\mkern-7.5mu" if esint package is loaded
-\def\titiltlongdash{\rotatebox[origin=c]{15}{$\tilongdash$}}
-\def\fiiint{\Zint\titiltlongdash}
-
-
-% Typesetting command
-\newcommand{\ttl}[1]{\textbf{\sffamily #1}}
-
-
-
-
-
+%%%% Table of contents
 
 \usepackage[titles]{tocloft}
 
 \renewcommand{\cftdot}{}
-%\setcounter{tocdepth}{1}
+\usepackage{titletoc}
+%\setcounter{tocdepth}{2}
+
+%%%%%%%%%%%%%%%% Toc style
+
+% Personalizzazione scritta indice
+
+
+% Font
+\usepackage[osf]{newpxtext}
+\usepackage{sansiwona}
+
+
+
 \begin{document}
 \maketitle
+\newpage
 \tableofcontents 
 \newpage
 \section{$2}
 
-$0
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+$1
 
 \end{document}
-
 endsnippet
 
 
-snippet tempart3 "Template articolo 3" b
+snippet tempart2 "Template fisica" b
 \documentclass[10pt, a4paper]{scrartcl}
 % Packages
+%\usepackage{stix}
 \usepackage[margin=1.5in]{geometry}
 \usepackage{index}
 \makeindex
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{varwidth}
-\usepackage{textcomp}
 \usepackage{amsmath, amssymb}
 \usepackage{esint}
 \usepackage{titlesec}
 \usepackage{xcolor}
 \usepackage{titling}
+\usepackage{braket}
+\usepackage{tensor}
 \usepackage[linktocpage]{hyperref}
 \usepackage{pgfplots}
 \usepackage{multicol}
@@ -622,6 +238,7 @@ snippet tempart3 "Template articolo 3" b
 \usepackage{import}
 \usepackage{cancel}
 \usepackage{caption}
+\usepackage{tcolorbox}
 \usepackage{nicematrix}
 \usepackage{mathrsfs}
 \usepackage{mathtools}
@@ -637,7 +254,7 @@ snippet tempart3 "Template articolo 3" b
 %Titlesec
 \titleformat{\section}
 {\fontsize{15}{20}\sffamily\scshape}
-{\normalfont\color{gray}{\fontsize{70}{20}\selectfont\thesection}}
+{\normalfont\color{gray}{\fontsize{20}{20}\selectfont\thesection}}
 {0.7em}
 {}
 \hypersetup{colorlinks,breaklinks, linkcolor=[RGB]{74, 122, 164}}
@@ -650,17 +267,17 @@ snippet tempart3 "Template articolo 3" b
 }
 \definecolor{asdf}{HTML}{4a7aa4}
 % Personalizza la formattazione della subsection
-\titleformat{\subsection}[block]{\fontsize{13}{25}\centering\sffamily}{\normalfont\thesubsection}{.5em}{}
+\titleformat{\subsection}[block]{\fontsize{12}{20}\bfseries}{\normalfont\thesubsection}{.5em}{}
 
 
 % Personalizza la formattazione della subsubsection
-\titleformat{\subsubsection}[block]{\fontsize{10}{25}\centering\sffamily}{\normalfont\thesubsubsection}{.5em}{}
+\titleformat{\subsubsection}[block]{\fontsize{10}{20}\bfseries}{\normalfont\thesubsubsection}{.5em}{}
 
 % Maketitle customization
 \renewcommand{\maketitle}{
 \begin{center}
 {\sffamily
-{\fontsize{30}{20}\selectfont\thetitle}}
+{\fontsize{20}{20}\selectfont\MakeUppercase\thetitle}}
 
 \vspace{0.2in}
 
@@ -669,7 +286,7 @@ snippet tempart3 "Template articolo 3" b
 }
 
 % Titles 
-\title{$1}
+\title{$0}
 \author{Manuel Deodato}
 \date{}
 
@@ -680,7 +297,7 @@ snippet tempart3 "Template articolo 3" b
 \newcommand*\Eval[3]{\left.#1\right\rvert_{#2}^{#3}}
 
 %%%%%%% Numero delle equazioni in formato a.b
-\numberwithin{equation}{section}
+\numberwithin{equation}{subsection}
 %%%%%
 
 %%%%%%%%%% Personalizzazione numeri lista
@@ -718,35 +335,16 @@ snippet tempart3 "Template articolo 3" b
 
 \renewcommand{\cftdot}{}
 \usepackage{titletoc}
-\setcounter{tocdepth}{2}
+%\setcounter{tocdepth}{2}
 
 %%%%%%%%%%%%%%%% Toc style
 
 % Personalizzazione scritta indice
-\makeatletter
-\renewcommand\tableofcontents{{\hspace{-1em}\fontsize{25}{30}\selectfont\sffamily\scshape\contentsname\vspace{.25em}}\@starttoc{toc}}
-\makeatother
-
-% Personalizzazione arrangiamento TOC
-\titlecontents{section}[0em]
-{\vspace{1em}} % Aggiungi spazio sopra il contenuto
-{\thecontentslabel \enspace \scshape\sffamily\fontsize{12}{0}\selectfont\hspace{.5em}} % Formato dell'etichetta di sezione
-{} % Spazio tra etichetta e titolo
-{\hspace{2em}\bfseries\contentspage} % Formato del numero di pagina
-[\vspace{0em}] % Aggiungi spazio sotto il contenuto
-
-\titlecontents{subsection}[0em]
-{\vspace{0.5em}} % Aggiungi spazio sopra il contenuto
-{\thecontentslabel\enspace\hspace{1em}} % Formato dell'etichetta di sezione
-{} % Spazio tra etichetta e titolo
-{\hspace{2em}\bfseries\contentspage} % Formato del numero di pagina
-[\vspace{0em}] % Aggiungi spazio sotto il contenuto
-
 
 
 % Font
 \usepackage[osf]{newpxtext}
-\usepackage[euler-digits,euler-hat-accent]{eulervm}
+
 \usepackage{sansiwona}
 
 
@@ -778,6 +376,20 @@ snippet tempart3 "Template articolo 3" b
 
 \newenvironment{svolgimento}{\renewcommand\qedsymbol{$\spadesuit$}\begin{proof}[Svolgimento]}{\end{proof}}
 
+%% Generic box
+\newtcolorbox{eqbox}[1][]
+{
+colback=gray!10,
+arc=0pt,
+boxrule=0pt,
+title=#1
+}
+
+ \newenvironment{boxenv}[1][]{
+    \begin{eqbox}[#1]
+    }{
+   \end{eqbox}
+}
 
 
 
@@ -795,353 +407,10 @@ snippet tempart3 "Template articolo 3" b
 \newpage
 \section{$2}
 
-$0
-
-
-
-
-
-
-
-
+$1 
 
 \end{document}
 endsnippet
-
-
-
-
-snippet tempbook1 "Template libro 1" b
-\documentclass[11pt,a4paper,twoside,openright, titlepage, headinclude,footinclude,BCOR=5mm,numbers=noenddot,cleardoublepage=empty,abstracton,table,usenames,dvipsnames]{scrbook}
-% Packages
-%\usepackage[margin=1.5in]{geometry}
-\usepackage{index}
-\makeindex
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{tcolorbox}
-\tcbuselibrary{theorems}
-\tcbuselibrary{skins}
-\tcbuselibrary{breakable}
-\usepackage{varwidth}
-\usepackage{textcomp}
-\usepackage{amsmath, amssymb}
-\usepackage{esint}
-\usepackage{titlesec}
-\usepackage{xcolor}
-\usepackage{titling}
-\usepackage{hyperref}
-\usepackage{pgfplots}
-\usepackage{multicol}
-\setlength{\columnsep}{2em}
-\usepackage{caption}
-\usepackage{amsthm}
-\usepackage{import}
-\usepackage{cancel}
-\usepackage{caption}
-\usepackage{nicematrix}
-\usepackage{mathrsfs}
-\usepackage{mathtools}
-
-\usepackage{enumerate}
-\usepackage{graphicx}
-\usepackage[italian]{babel}
-
-% ToC customization
-\setcounter{tocdepth}{1}
-\usepackage[titles]{tocloft}
-\renewcommand{\cftdot}{}
-
-\definecolor{masterblue}{HTML}{4a7aa4}
-%Captions
-\captionsetup[figure]{font=footnotesize,labelfont=footnotesize}
-\captionsetup[table]{font=footnotesize,labelfont=footnotesize}
-
-% Chapter
-\usepackage[Lenny]{fncychap}
-\ChNameUpperCase
-\ChNumVar{\fontsize{40}{42}\usefont{OT1}{ptm}{m}{n}\selectfont}
-\ChTitleVar{\fontsize{25}{30}\scshape}
-% Section
-\renewcommand{\thesection}{\arabic{section}}
-\titleformat{\section}
-{\fontsize{17}{20}\centering\bfseries\color{masterblue}}
-{\S\thesection}
-{0.7em}
-{}
-
-\hypersetup{colorlinks,breaklinks, linkcolor=[RGB]{74, 122, 164}}
-
-\newcommand\vertarrowbox[3][6ex]{%
-  \begin{array}[t]{@{}c@{}} #2 \
-  \left\uparrow\vcenter{\hrule height #1}\right.\kern-\nulldelimiterspace\
-  \makebox[0pt]{\scriptsize#3}
-  \end{array}%
-}
-% Personalizza la formattazione della subsection
-\renewcommand{\thesubsection}{\arabic{section}.\arabic{subsection}}
-\titleformat{\subsection}[block]{\fontsize{13}{25}\centering\bfseries\color{masterblue}}{\thesubsection}{.5em}{}
-
-\setcounter{secnumdepth}{3}
-% Personalizza la formattazione della subsubsection
-\renewcommand{\thesubsubsection}{\arabic{section}.\arabic{subsection}.\arabic{subsubsection}}
-\titleformat{\subsubsection}[block]{\fontsize{10}{25}\bfseries\centering\color[HTML]{masterblue}}{\thesubsubsection}{.5em}{}
-
-% Maketitle customization
-\renewcommand{\maketitle}{
-\begin{center}
-{\huge\bfseries
-\thetitle}
-
-\vspace{0.05in}
-
-{\large\scshape\theauthor}
-\end{center}
-}
-
-% Titles 
-\title{$1 {\color{masterblue}$2}}
-\author{Manuel Deodato}
-\date{}
-
-
-%Evaluate symbol
-\DeclareMathOperator{\di}{d\!}
-\newcommand*\Eval[3]{\left.#1\right\rvert_{#2}^{#3}}
-
-%%%%% tcolorbox setup
-
-% Typesetting command
-\newcommand{\ttl}[1]{\textbf{#1}}
-% Teorema e proposizione
-\definecolor{propcolor}{HTML}{4A7AA4}
-\definecolor{thcolor}{HTML}{9ab7d3}
-
-\newtheoremstyle{teocolor}
-{\topsep}
-{\topsep}
-{}
-{}
-{\color{thcolor}\bfseries}
-{.}
-{.5em}
-{}
-\theoremstyle{teocolor}
-\newtheorem{teorema}{Teorema}
-
-
-\tcolorboxenvironment{teorema}{blanker,breakable,left=5mm,before skip=10pt,after skip=10pt, borderline west={1mm}{0pt}{thcolor}}
-
-\numberwithin{teorema}{section}
-\newtheoremstyle{procolor}
-{\topsep}
-{\topsep}
-{}
-{}
-{\color{propcolor}\bfseries}
-{.}
-{.5em}
-{}
-\theoremstyle{procolor}
-\newtheorem{prop}{Proposizione}
-
-\tcolorboxenvironment{prop}{blanker,breakable,left=5mm,before skip=10pt,after skip=10pt, borderline west={1mm}{0pt}{propcolor}}
-
-\numberwithin{prop}{section}
-
-
-% Definizione
-\definecolor{greendef}{HTML}{3c7846}
-
-\newtheoremstyle{defcolor}
-{\topsep}
-{\topsep}
-{}
-{}
-{\color{greendef}\bfseries}
-{.}
-{.5em}
-{}
-\theoremstyle{defcolor}
-\newtheorem{definizione}{Definizione}
-
-
-\tcolorboxenvironment{definizione}{blanker,breakable,left=5mm,before skip=10pt,after skip=10pt, borderline west={1mm}{0pt}{greendef}}
-
-\numberwithin{definizione}{section}
-
-% Esempio
-\definecolor{empurple}{HTML}{6e5e89}
-\newtheoremstyle{emcolor}
-{\topsep}
-{\topsep}
-{}
-{}
-{\color{empurple}\bfseries}
-{.}
-{.5em}
-{}
-\theoremstyle{emcolor}
-
-\newtheorem{esempio}{Esempio}
-
-
-\tcolorboxenvironment{esempio}{blanker,breakable,left=5mm,before skip=10pt,after skip=10pt, borderline west={1mm}{0pt}{empurple}}
-
-\numberwithin{esempio}{section}
-
-
-% Lemma e Corollario
-\definecolor{lemcor}{HTML}{a78d8a}
-\newtheoremstyle{lemcol}
-{\topsep}
-{\topsep}
-{}
-{}
-{\color{lemcor}\bfseries}
-{.}
-{.5em}
-{}
-\theoremstyle{lemcol}
-\newtheorem{lemma}{Lemma}
-\newtheorem{corollario}{Corollario}
-
-
-\tcolorboxenvironment{corollario}{blanker,breakable,left=5mm,before skip=10pt,after skip=10pt, borderline west={1mm}{0pt}{lemcor}}
-\tcolorboxenvironment{lemma}{blanker,breakable,left=5mm,before skip=10pt,after skip=10pt, borderline west={1mm}{0pt}{lemcor}}
-
-\numberwithin{corollario}{section}
-\numberwithin{lemma}{section}
-
-
-
-% Osservazione
-\definecolor{coloros}{HTML}{6e5e89}
-\newtheoremstyle{obscol}
-{\topsep}
-{\topsep}
-{}
-{}
-{\color{coloros}\bfseries}
-{.}
-{.5em}
-{}
-\theoremstyle{obscol}
-\newtheorem{obs}{Osservazione}
-
-
-\tcolorboxenvironment{obs}{blanker,breakable,left=5mm,before skip=10pt,after skip=10pt, borderline west={1mm}{0pt}{coloros}}
-
-\numberwithin{obs}{section}
-
-
-
-
-%%%%%%%%%% Lettere greche sans serif %%%%%%%%%%%%%%
-
-\DeclareSymbolFont{Greekletters}{OT1}{iwona}{m}{n}
-\DeclareSymbolFont{greekletters}{OML}{iwona}{m}{it}
-\DeclareMathSymbol{\Delta}{\mathord}{Greekletters}{"01}
-\DeclareMathSymbol{\Theta}{\mathord}{Greekletters}{"02}
-\DeclareMathSymbol{\Lambda}{\mathord}{Greekletters}{"03}
-\DeclareMathSymbol{\Xi}{\mathord}{Greekletters}{"04}
-\DeclareMathSymbol{\Pi}{\mathord}{Greekletters}{"05}
-\DeclareMathSymbol{\Sigma}{\mathord}{Greekletters}{"06}
-\DeclareMathSymbol{\Upsilon}{\mathord}{Greekletters}{"07}
-\DeclareMathSymbol{\Phi}{\mathord}{Greekletters}{"08}
-\DeclareMathSymbol{\Psi}{\mathord}{Greekletters}{"09}
-\DeclareMathSymbol{\Omega}{\mathord}{Greekletters}{"0A}
-
-\DeclareMathSymbol{\alpha}{\mathord}{greekletters}{"0B}
-\DeclareMathSymbol{\beta}{\mathord}{greekletters}{"0C}
-\DeclareMathSymbol{\gamma}{\mathord}{greekletters}{"0D}
-\DeclareMathSymbol{\delta}{\mathord}{greekletters}{"0E}
-\DeclareMathSymbol{\epsilon}{\mathord}{greekletters}{"0F}
-\DeclareMathSymbol{\zeta}{\mathord}{greekletters}{"10}
-\DeclareMathSymbol{\eta}{\mathord}{greekletters}{"11}
-\DeclareMathSymbol{\theta}{\mathord}{greekletters}{"12}
-\DeclareMathSymbol{\iota}{\mathord}{greekletters}{"13}
-\DeclareMathSymbol{\kappa}{\mathord}{greekletters}{"14}
-\DeclareMathSymbol{\lambda}{\mathord}{greekletters}{"15}
-\DeclareMathSymbol{\mu}{\mathord}{greekletters}{"16}
-\DeclareMathSymbol{\nu}{\mathord}{greekletters}{"17}
-\DeclareMathSymbol{\xi}{\mathord}{greekletters}{"18}
-\DeclareMathSymbol{\pi}{\mathord}{greekletters}{"19}
-\DeclareMathSymbol{\rho}{\mathord}{greekletters}{"1A}
-\DeclareMathSymbol{\sigma}{\mathord}{greekletters}{"1B}
-\DeclareMathSymbol{\tau}{\mathord}{greekletters}{"1C}
-\DeclareMathSymbol{\upsilon}{\mathord}{greekletters}{"1D}
-\DeclareMathSymbol{\phi}{\mathord}{greekletters}{"1E}
-\DeclareMathSymbol{\chi}{\mathord}{greekletters}{"1F}
-\DeclareMathSymbol{\psi}{\mathord}{greekletters}{"20}
-\DeclareMathSymbol{\omega}{\mathord}{greekletters}{"21}
-\DeclareMathSymbol{\varepsilon}{\mathord}{greekletters}{"22}
-\DeclareMathSymbol{\vartheta}{\mathord}{greekletters}{"23}
-\DeclareMathSymbol{\varpi}{\mathord}{greekletters}{"24}
-\DeclareMathSymbol{\varrho}{\mathord}{greekletters}{"25}
-\DeclareMathSymbol{\varsigma}{\mathord}{greekletters}{"26}
-\DeclareMathSymbol{\varphi}{\mathord}{greekletters}{"27}
-\DeclareMathSymbol{\Gamma}{\mathord}{greekletters}{"00}
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%%%% Numero delle equazioni in formato a.b
-\numberwithin{equation}{section}
-%%%%%
-
-%%%%%%%%%% Personalizzazione numeri lista
-\renewcommand{\theenumi}{(\arabic{enumi})}
-
-%%%%%%%%%% Medie con integrali multipli
-\def\Yint#1{\mathchoice
-    {\YYint\displaystyle\textstyle{#1}}%
-    {\YYint\textstyle\scriptstyle{#1}}%
-    {\YYint\scriptstyle\scriptscriptstyle{#1}}%
-    {\YYint\scriptscriptstyle\scriptscriptstyle{#1}}%
-      \!\iint}
-\def\YYint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\iint}$}
-    \vcenter{\hbox{$#2#3$}}\kern-.51\wd0}}
-\def\longdash{{-}\mkern-3.5mu{-}} 
-   % consider using "\mkern-7.5mu" if esint package is loaded
-\def\tiltlongdash{\rotatebox[origin=c]{15}{$\longdash$}}
-\def\fiint{\Yint\tiltlongdash}
-
-\def\Zint#1{\mathchoice
-    {\YYint\displaystyle\textstyle{#1}}%
-    {\YYint\textstyle\scriptstyle{#1}}%
-    {\YYint\scriptstyle\scriptscriptstyle{#1}}%
-    {\YYint\scriptscriptstyle\scriptscriptstyle{#1}}%
-      \!\iiint}
-      \def\tilongdash{\mkern6mu{-}\mkern-4mu{-}\mkern-5mu{-}} 
-   % consider using "\mkern-7.5mu" if esint package is loaded
-\def\titiltlongdash{\rotatebox[origin=c]{15}{$\tilongdash$}}
-\def\fiiint{\Zint\titiltlongdash}
-
-% Font Iwona
-
-\usepackage[math]{iwona}
-\mathversion{iwona}
-
-\begin{document}
-\maketitle
-\tableofcontents 
-\newpage
-\chapter{$3}
-\section{$4}
-
-$0
-
-
-
-
-
-
-\end{document}
-endsnippet
-
-
-
 
 
 
