@@ -48,17 +48,17 @@ snippet tempart1 "Template matematica" b
 \usepackage[italian]{babel}
 
 % Titles 
-\title{$0}
+\title{$1}
 \author{Manuel Deodato}
 \date{}
 
 %%%%% tcolorbox setup
 
 % Teorema e proposizione
-\NewTcbTheorem[number within=section]{teorema}{Teorema}
+\newtcbtheorem[number within=section]{teorema}{Teorema}
 {breakable, top=0.2mm, bottom=0.2mm, boxrule=0mm,arc =.5 mm, colframe=blue!10, coltitle=black, fonttitle=\bfseries, colback=blue!5!white, theorem style=plain apart}{th}
 
-\NewTcbTheorem[number within=section]{prop}{Proposizione}
+\newtcbtheorem[number within=section]{prop}{Proposizione}
 {breakable, top=0.2mm, bottom=0.2mm, boxrule=0mm,arc =.5 mm, colframe=blue!10, coltitle=black, fonttitle=\bfseries, colback=blue!5!white, theorem style=plain apart}{prop}
 
 
@@ -68,7 +68,7 @@ snippet tempart1 "Template matematica" b
 % Definizione
 \definecolor{greendef}{HTML}{b8d8be}
 
-\NewTcbTheorem[number within=section]{definizione}{Definizione}
+\newtcbtheorem[number within=section]{definizione}{Definizione}
 {breakable, top=0.2mm, bottom=0.2mm, boxrule=0mm, arc=.5mm, colframe=greendef, coltitle=black, fonttitle=\bfseries, theorem style = plain apart, colback=greendef!50!white}{def}
 
 
@@ -78,7 +78,7 @@ snippet tempart1 "Template matematica" b
 
 %\definecolor{empurple}{HTML}{6e5e89}
 
-%\NewTcbTheorem{esempio}{Esempio}{left=0mm,arc=0mm, colframe=empurple!10!white, coltitle=black, fonttitle=\bfseries, theorem style = plain, colback=empurple!20!white, colframe=empurple!90!white, boxrule=1pt, sharp corners, top=.2mm,bottom=.2mm}{es}
+%\newtcbtheorem{esempio}{Esempio}{left=0mm,arc=0mm, colframe=empurple!10!white, coltitle=black, fonttitle=\bfseries, theorem style = plain, colback=empurple!20!white, colframe=empurple!90!white, boxrule=1pt, sharp corners, top=.2mm,bottom=.2mm}{es}
 
 \tcolorboxenvironment{esempio}{blanker,breakable,left=5mm,before skip=10pt,after skip=10pt, borderline west={1mm}{0pt}{greendef}}
 
@@ -88,8 +88,8 @@ snippet tempart1 "Template matematica" b
 % Lemma e Corollario
 \definecolor{lemcor}{HTML}{a78d8a}
 
-\NewTcbTheorem[number within=section]{lemma}{Lemma}{breakable, top=0.2mm, bottom=0.2mm, boxrule=0mm,left=0mm,arc=.5mm, colframe=lemcor!10!white, coltitle=black, fonttitle=\bfseries, theorem style = plain apart, colframe=lemcor!50!white,colback=lemcor!20!white}{lem}
-\NewTcbTheorem[number within=section]{corollario}{Corollario}{breakable, top=0.2mm, bottom=0.2mm, boxrule=0mm,left=0mm,arc=.5mm, colframe=lemcor!10!white, coltitle=black, fonttitle=\bfseries, theorem style = plain apart, colframe=lemcor!50!white,colback=lemcor!20!white}{cor}
+\newtcbtheorem[number within=section]{lemma}{Lemma}{breakable, top=0.2mm, bottom=0.2mm, boxrule=0mm,left=0mm,arc=.5mm, colframe=lemcor!10!white, coltitle=black, fonttitle=\bfseries, theorem style = plain apart, colframe=lemcor!50!white,colback=lemcor!20!white}{lem}
+\newtcbtheorem[number within=section]{corollario}{Corollario}{breakable, top=0.2mm, bottom=0.2mm, boxrule=0mm,left=0mm,arc=.5mm, colframe=lemcor!10!white, coltitle=black, fonttitle=\bfseries, theorem style = plain apart, colframe=lemcor!50!white,colback=lemcor!20!white}{cor}
 
 
 
@@ -206,7 +206,7 @@ snippet tempart1 "Template matematica" b
 \newpage
 \section{$2}
 
-$1
+$0	
 
 \end{document}
 endsnippet
@@ -286,7 +286,7 @@ snippet tempart2 "Template fisica" b
 }
 
 % Titles 
-\title{$0}
+\title{$1}
 \author{Manuel Deodato}
 \date{}
 
@@ -407,7 +407,7 @@ title=#1
 \newpage
 \section{$2}
 
-$1 
+$0 
 
 \end{document}
 endsnippet
