@@ -94,3 +94,20 @@ an() {
 aan() {
 	cp ~/Documents/Note/Matematica/Analisi\ 2/master.pdf ~/Desktop/Note\ di\ Analisi\ 2.pdf
 }
+
+### Bluetooth
+
+bt() {
+	case "$1" in 
+		on) 
+			sudo systemctl enable --now bluetooth
+			;;
+		off) 
+			sudo systemctl disable --now bluetooth
+			;;
+		*) 
+			echo "Utilizzare comando on per abilitare e off per disabilitare."
+			return 1
+			;;
+	esac
+}

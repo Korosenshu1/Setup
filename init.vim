@@ -7,15 +7,7 @@ Plug 'lervag/vimtex'
 
 Plug 'sirver/ultisnips'
 
-"Plug 'catppuccin/nvim', { 'as': 'catppuccin' }
-
-"
-"
-"Plug 'KeitaNakamura/tex-conceal.vim'
-
 Plug 'arcticicestudio/nord-vim'
-
-"Plug 'andreasvc/vim-256noir'
 
 call plug#end()
 
@@ -28,10 +20,6 @@ call plug#end()
     let g:tex_flavor='latex'
     let g:vimtex_view_method='zathura'
     let g:vimtex_quickfix_mode=0
-" Tex-conceal
-"    set conceallevel=1
-"    let g:tex_conceal='abdmg'
-"    hi Conceal ctermbg=none
 
 " Autosave
 autocmd TextChanged,TextChangedI *
@@ -42,13 +30,8 @@ autocmd TextChanged,TextChangedI *
 " Numbers on the side    
 set number relativenumber
 
-" Syntax
+"Syntax
 syntax enable
-
-" Catppuccin theme
-"colorscheme catppuccin-frappe " catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
-
-
 
 "Nord Theme installation
 colorscheme nord
@@ -56,11 +39,8 @@ let g:lightline = {
       \ 'colorscheme': 'nord',
 \ }
 
-" 256_noir Theme installation
-" colorscheme 256_noir
-
 " Nord Theme installation 
-"colorscheme nord
+colorscheme nord
 
 " Change highlighting of cursor line when entering/leaving Insert Mode
 set cursorline
