@@ -1,0 +1,3 @@
+cmd open $~/.config/lf/open "$f"
+map <enter> open
+

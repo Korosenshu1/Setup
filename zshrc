@@ -74,7 +74,6 @@ plugins=(zsh-autosuggestions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 source ~/.scripts.sh
-
 # User configuration
 
 # export MANPATH="/usr/local/man:$MANPATH"
@@ -136,3 +135,15 @@ preexec() { echo -ne '\e[6 q' ;} # Use beam shape cursor for each new prompt.
 
 alias cp="cp -iv"
 alias mv="mv -iv"
+alias pm="pulsemixer"
+alias bt="bluetoothctl"
+alias yt="yt-dlp"
+alias yta="yt-dlp -x -f bestaudio/best"
+alias ytv="yt-dlp -f 'bv*+ba/best'"
+## MAC addresses
+export airpods="5C:1B:F4:07:2D:BD"
+export casse="7C:96:D2:56:99:32"
+
+## Default editor
+export EDITOR=nvim
+export VISUAL=nvim

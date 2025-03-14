@@ -95,19 +95,100 @@ aan() {
 	cp ~/Documents/Note/Matematica/Analisi\ 2/master.pdf ~/Desktop/Note\ di\ Analisi\ 2.pdf
 }
 
-### Bluetooth
+## Display
 
-bt() {
-	case "$1" in 
-		on) 
-			sudo systemctl enable --now bluetooth
-			;;
-		off) 
-			sudo systemctl disable --now bluetooth
-			;;
-		*) 
-			echo "Utilizzare comando on per abilitare e off per disabilitare."
-			return 1
-			;;
-	esac
+dpon() {
+	xrandr --output DP-1 --primary --mode 3840x2160 --rate 60.00 --output eDP-1 --mode 1920x1080 --rate 60.00 --below DP-1
+	setxkbmap -option caps:swapescape,compose:ralt &
+}
+
+dpdockon() {
+	xrandr --output DP-1 --primary --mode 3840x2160 --rate 60.00 --output eDP-1 --off
+	nitrogen --restore &
+	setxkbmap -option caps:swapescape,compose:ralt &
+}
+
+dpoff() {
+	xrandr --output DP-1 --off --output eDP-1 --primary --mode 1920x1080 --rate 60.00
+	nitrogen --restore &
+}
+
+## DWM
+
+ninit(){
+	nvim ~/.xinitrc
+}
+
+nsl(){
+	cd ~/suckless/slstatus/
+	nvim config.def.h
+}
+
+nlock(){
+	cd ~/suckless/slock/
+	nvim config.def.h
+}
+
+ndwm(){
+	cd ~/suckless/dwm/
+	nvim config.def.h
+}
+
+nst(){
+	cd ~/suckless/st/
+	nvim config.def.h
+}
+
+nmenu(){
+	cd ~/suckless/dmenu/
+	nvim config.def.h
+}
+
+comp(){
+	sudo cp config.def.h config.h
+	sudo make clean install
+}
+
+## Bluetooth
+bton() {
+	sudo systemctl enable --now bluetooth
+}
+
+btoff() {
+	sudo systemctl disable --now bluetooth
+}
+
+cson() {
+	bluetoothctl connect $casse
+}
+
+csoff() {
+	bluetoothctl disconnect $casse
+}
+
+airon() {
+	bluetoothctl connect $airpods
+}
+
+airoff() {
+	bluetoothctl disconnect $airpods
+}
+
+## Nav
+rnote() {
+	ranger ~/Documents/Note
+}
+
+cnote() {
+	cd ~/Documents/Note
+}
+
+cbin() {
+	cd ~/.local/bin/	
+}
+
+## Dunst commands
+dr() {
+	pkill dunst
+	dunst &
 }
