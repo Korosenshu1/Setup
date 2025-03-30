@@ -14,10 +14,14 @@ nscript() {
 	nvim ~/.scripts.sh
 }
 
-## Edits tex.snippets 
+## Edits snippets 
 
 ntsnip() {
 	nvim ~/.config/nvim/UltiSnips/tex.snippets
+}
+
+nrsnip() {
+	nvim ~/.config/nvim/UltiSnips/nroff.snippets
 }
 
 ncsnip() {
@@ -65,36 +69,23 @@ f3() {
 	nvim ~/Documents/Note/Fisica/Fisica\ 3/appunti/master.tex
 }
 
-af3() {
-	cp ~/Documents/Note/Fisica/Fisica\ 3/appunti/master.pdf ~/Desktop/Appunti\ di\ Fisica\ 3.pdf
-}
-
 m() {
 	nvim ~/Documents/Note/Fisica/Meccanica\ Quantistica/master.tex
 }
 
-am() {
-	cp ~/Documents/Note/Fisica/Meccanica\ Quantistica/master.pdf ~/Desktop/Appunti\ di\ Meccanica\ Quantistica.pdf
-}
-
-s() {
-	nvim ~/Documents/Note/Fisica/Struttura\ della\ Materia/master.tex
-}
-
-as() {
-	cp ~/Documents/Note/Fisica/Struttura\ della\ Materia/master.pdf ~/Desktop/Appunti\ di\ Struttura\ della\ Materia.pdf
-}
-
 ## Matematica
 
-an() {
+a() {
 	nvim ~/Documents/Note/Matematica/Analisi\ 2/master.tex
 }
 
-aan() {
-	cp ~/Documents/Note/Matematica/Analisi\ 2/master.pdf ~/Desktop/Note\ di\ Analisi\ 2.pdf
+to() {
+	nvim ~/Documents/Note/Matematica/Topologia/master.tex
 }
 
+ag() {
+	nvim ~/Documents/Note/Matematica/Algebra/master.tex
+}
 ## Display
 
 dpon() {
@@ -191,4 +182,17 @@ cbin() {
 dr() {
 	pkill dunst
 	dunst &
+}
+
+## Groff compiling
+
+ge() {
+	#preconv master.ms | eqn -Tpdf | groff -ms -Tpdf > master.pdf 
+	groff -k -e master.ms -ms -Tpdf > master.pdf
+	zathura master.pdf
+}
+
+gc() {
+	groff -k -ms master.ms -Tpdf > master.pdf
+	zathura master.pdf
 }

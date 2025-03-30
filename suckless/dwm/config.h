@@ -20,11 +20,13 @@ static const char col_gray2[]       = "#444444";
 static const char col_gray3[]       = "#bbbbbb";
 static const char col_gray4[]       = "#eeeeee";
 static const char col_black[]	    = "#000000";	
-static const char col_cyan[]        = "#005577";
+static const char col_cyan[]        = "#ffffff";
+//static const char col_cyan[]        = "#005577";
 static const char *colors[][3]      = {
 	/*               fg         bg         border   */
 	[SchemeNorm] = { col_gray3, col_gray1, col_black },
-	[SchemeSel]  = { col_gray4, col_cyan,  col_cyan },
+	[SchemeSel]  = { col_black, col_cyan,  col_cyan },
+	//[SchemeSel]  = { col_gray4, col_cyan,  col_cyan },
 };
 
 // Volume regulation through media buttons scripts
@@ -91,8 +93,8 @@ static const Layout layouts[] = {
 
 /* commands */
 static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() */
-static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
-static const char *termcmd[]  = { "kitty", NULL };
+static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_black , NULL };
+static const char *termcmd[]  = { "st", NULL };
 
 static const Key keys[] = {
 	/* modifier                     key        function        argument */
@@ -100,8 +102,8 @@ static const Key keys[] = {
 	{ MODKEY,             		XK_Return, spawn,          {.v = termcmd } },
 	{ MODKEY,             		XK_b,      togglebar,      {0} },
 	{ Mod1Mask,             	XK_b,      spawn,      	   SHCMD("brave") },
-	{ Mod1Mask,             	XK_f,      spawn,      	   SHCMD("kitty lf ~/") },
-	//{ Mod1Mask,             	XK_f,      spawn,      	   SHCMD("st -e lf ~/") },
+	{ Mod1Mask,             	XK_q,      spawn,      	   SHCMD("qutebrowser") },
+	{ Mod1Mask,             	XK_f,      spawn,      	   SHCMD("st -e lf ~/") },
 	{ 0,             		0xff61,    spawn,      	   SHCMD("flameshot gui") },
 	{ MODKEY,                       XK_j,      focusstack,     {.i = +1 } },
 	{ MODKEY,                       XK_k,      focusstack,     {.i = -1 } },

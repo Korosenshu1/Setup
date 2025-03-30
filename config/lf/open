@@ -3,6 +3,7 @@ case "$1" in
     *.pdf) zathura "$1" ;;
     *.jpg|*.png|*.jpeg) sxiv "$1" ;;
     *.mp4|*.mkv|*.webm) mpv "$1" ;;
+    *.ms) nvim "$1" ;;
     *) xdg-open "$1" ;;
 esac
 

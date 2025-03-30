@@ -361,7 +361,7 @@
 [urgency_critical]
     background = "#222222"
     foreground = "#ffffff"
-    frame_color="#404066"
+    #frame_color="#ffffff"
     #frame_color = "#ff0000"
     timeout = 0
     override_pause_level = 60

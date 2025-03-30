@@ -1,0 +1,29 @@
+snippet temp "template" b
+.de LI
+.IP \(bu 2
+..
+.EQ
+delim $$
+.EN
+
+
+.TL
+$1
+.AU
+Manuel Deodato
+.AI
+$2
+.NH 
+$0
+endsnippet
+
+snippet EQ "equation env" iA 
+.EQ
+$1
+.EN
+$0
+endsnippet 
+
+snippet mk "inline eq" iA 
+$$1$ $0
+endsnippet
