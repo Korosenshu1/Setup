@@ -22,7 +22,6 @@ call plug#end()
     let g:tex_flavor='latex'
     let g:vimtex_view_method='zathura'
     let g:vimtex_quickfix_mode=0
-
 " Autosave
 autocmd TextChanged,TextChangedI *
     \ if &buftype ==# '' || &buftype == 'acwrite' |
@@ -82,7 +81,7 @@ let g:neovide_normal_opacity = 0.6
 let g:neovide_scale_factor=1
 
 " Compilazione groff
-autocmd BufWritePost *.ms silent !groff -k -e -ms % -Tpdf > %:r.pdf &
+autocmd BufWritePost *.ms silent !groff -t -k -e -ms % -Tpdf > %:r.pdf &
 
 " Apertura file pdf
 nnoremap <leader>op :call OpenPDF()<CR>

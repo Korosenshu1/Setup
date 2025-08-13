@@ -65,26 +65,73 @@ c() {
 
 ## Fisica
 
-f3() {
-	nvim ~/Documents/Note/Fisica/Fisica\ 3/appunti/master.tex
+m() {
+	nvim ~/Documents/Note/Fisica/Meccanica\ Quantistica/appunti/master.tex
 }
 
-m() {
-	nvim ~/Documents/Note/Fisica/Meccanica\ Quantistica/master.tex
+am() {
+	cp ~/Documents/Note/Fisica/Meccanica\ Quantistica/appunti/master.pdf ~/Documents/"Note di Meccanica Quantistica.pdf"
+}
+
+o() {
+	nvim ~/Documents/Note/Fisica/Ottica/master.tex
+}
+
+ao() {
+	cp ~/Documents/Note/Fisica/Ottica/master.pdf ~/Documents/"Note di Ottica.pdf"
+}
+
+
+## Chimica
+
+c() {
+	nvim ~/Documents/Note/Chimica/Chimica\ Generale/master.tex
+}
+
+ac() {
+	cp ~/Documents/Note/Chimica/Chimica\ Generale/master.pdf ~/Documents/"Note di Chimica Generale.pdf"
 }
 
 ## Matematica
 
 a() {
-	nvim ~/Documents/Note/Matematica/Analisi\ 2/master.tex
+	nvim ~/Documents/Note/Matematica/Analisi/master.tex
+}
+
+aa() {
+	cp ~/Documents/Note/Matematica/Analisi/master.pdf ~/Documents/"Note di Analisi.pdf"
 }
 
 to() {
 	nvim ~/Documents/Note/Matematica/Topologia/master.tex
 }
 
+ato() {
+	cp ~/Documents/Note/Matematica/Topologia/master.pdf ~/Documents/"Note di Topologia.pdf"
+}
+
+ar() {
+	nvim ~/Documents/Note/Matematica/Aritmetica/master.tex
+}
+
+aar() {
+	cp ~/Documents/Note/Matematica/Aritmetica/master.pdf ~/Documents/"Note di Aritmetica.pdf"
+}
+
 ag() {
 	nvim ~/Documents/Note/Matematica/Algebra/master.tex
+}
+
+aag() {
+	cp ~/Documents/Note/Matematica/Algebra/master.pdf ~/Documents/"Note di Algebra.pdf"
+}
+
+t() {
+	nvim ~/Documents/Note/Tesi/appunti/master.tex
+}
+
+at() {
+	cp ~/Documents/Note/Tesi/appunti/master.pdf ~/Documents/"Tesi.pdf"
 }
 ## Display
 

@@ -9,11 +9,10 @@ def env(name):
 endglobal
 
 snippet tempart1 "Template matematica" b
-\documentclass[10pt, a4paper]{scrartcl}
+\\documentclass[11pt, a4paper]{scrartcl}
 % Packages
 \usepackage[margin=1.25in]{geometry}
 \usepackage{index}
-\usepackage{stix}
 \usepackage{amsbsy} % Bold math symbols
 \makeindex
 \usepackage[utf8]{inputenc}
@@ -39,16 +38,19 @@ snippet tempart1 "Template matematica" b
 \usepackage{cancel}
 \usepackage{caption}
 \usepackage{nicematrix}
-\usepackage{mathrsfs}
+%\usepackage{mathrsfs}
 \usepackage{mathtools}
 %\usepackage{parskip}
 \usepackage{pythonhighlight}
 \usepackage{enumerate}
 \usepackage{graphicx}
 \usepackage{tikz}
+\usepackage{tikz-cd}
 \usepackage[italian]{babel}
 % To reset footnote numbering each page
 \usepackage[perpage]{footmisc}
+\usepackage{setspace}
+\setstretch{1.2}
 
 % Titles 
 \title{$1}
@@ -96,8 +98,11 @@ snippet tempart1 "Template matematica" b
 % Lemma e Corollario
 \definecolor{lemcor}{HTML}{a78d8a}
 
-\newtcbtheorem[number within=section]{lemma}{Lemma}{breakable, top=0.2mm, bottom=0.2mm, boxrule=0mm,left=0mm,arc=.5mm, colframe=lemcor!10!white, coltitle=black, fonttitle=\bfseries, theorem style = plain apart, colframe=lemcor!50!white,colback=lemcor!20!white}{lem}
-\newtcbtheorem[number within=section]{corollario}{Corollario}{breakable, top=0.2mm, bottom=0.2mm, boxrule=0mm,left=0mm,arc=.5mm, colframe=lemcor!10!white, coltitle=black, fonttitle=\bfseries, theorem style = plain apart, colframe=lemcor!50!white,colback=lemcor!20!white}{cor}
+\newtcbtheorem[number within=section]{lemma}{Lemma}
+{breakable, top=0.2mm, bottom=0.2mm, boxrule=0mm, arc=.5mm, colframe=lemcor!10!white, coltitle=black, fonttitle=\bfseries, theorem style = plain apart, colframe=lemcor!50!white,colback=lemcor!20!white}{lem}
+
+\newtcbtheorem[number within=section]{corollario}{Corollario}
+{breakable, top=0.2mm, bottom=0.2mm, boxrule=0mm, arc=.5mm, colframe=lemcor!10!white, coltitle=black, fonttitle=\bfseries, theorem style = plain apart, colframe=lemcor!50!white,colback=lemcor!20!white}{cor}
 
 
 
@@ -119,6 +124,21 @@ snippet tempart1 "Template matematica" b
 \tcolorboxenvironment{nota}{blanker,breakable,left=5mm,before skip=10pt,after skip=10pt, borderline west={1mm}{0pt}{ncol}}
 
 \numberwithin{nota}{section}
+
+%% Generic box
+\newtcolorbox{eqbox}[1][]
+{
+colback=gray!10,
+arc=0pt,
+boxrule=0pt,
+title=#1
+}
+
+ \newenvironment{boxenv}[1][]{
+    \begin{eqbox}[#1]
+    }{
+   \end{eqbox}
+}
 
 
 
@@ -159,11 +179,11 @@ snippet tempart1 "Template matematica" b
 \hypersetup{colorlinks,breaklinks, linkcolor=[RGB]{74, 122, 164}}
 \definecolor{asdf}{HTML}{4a7aa4}
 % Personalizza la formattazione della subsection
-\titleformat{\subsection}[block]{\fontsize{12}{20}\bfseries}{\normalfont\thesubsection}{.5em}{}
+\titleformat{\subsection}[block]{\fontsize{13}{20}\bfseries}{\normalfont\thesubsection}{.5em}{}
 
 
 % Personalizza la formattazione della subsubsection
-\titleformat{\subsubsection}[block]{\fontsize{10}{20}\bfseries}{\normalfont\thesubsubsection}{.5em}{}
+\titleformat{\subsubsection}[block]{\fontsize{12}{20}\bfseries}{\normalfont\thesubsubsection}{.5em}{}
 
 % Maketitle customization
 \renewcommand{\maketitle}{
@@ -202,13 +222,12 @@ snippet tempart1 "Template matematica" b
 
 
 % Font
-\usepackage[osf]{newpxtext}
+%\usepackage[osf]{newpxtext}
+%\usepackage{newtxmath}
+\usepackage{kpfonts}
 \usepackage{sansiwona}
-
-
-
 \begin{document}
-\maketitle
+maketitle
 \newpage
 \tableofcontents 
 \newpage
@@ -221,17 +240,16 @@ endsnippet
 
 
 snippet tempart2 "Template fisica" b
-\documentclass[10pt, a4paper]{scrartcl}
-% Packages
+\\documentclass[11pt, a4paper]{scrartcl} % Packages
 %\usepackage{stix}
+\usepackage{sansiwona}
 \usepackage[margin=1.5in]{geometry}
 \usepackage{index}
 \makeindex
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{varwidth}
-\usepackage{amsbsy} % Bold math symbols
-\usepackage{amsmath, amssymb}
+\usepackage{amsmath, amssymb, amsbsy}
 \usepackage{esint}
 \usepackage{titlesec}
 \usepackage{xcolor}
@@ -249,7 +267,6 @@ snippet tempart2 "Template fisica" b
 \usepackage{caption}
 \usepackage{tcolorbox}
 \usepackage{nicematrix}
-\usepackage{mathrsfs}
 \usepackage{mathtools}
 \usepackage{enumerate}
 \usepackage{graphicx}
@@ -257,6 +274,8 @@ snippet tempart2 "Template fisica" b
 \usepackage[italian]{babel}
 % To reset footnote numbering each page
 \usepackage[perpage]{footmisc}
+\usepackage{setspace}
+\setstretch{1.2}
 
 %Captions
 \captionsetup[figure]{font=footnotesize,labelfont=footnotesize}
@@ -277,11 +296,11 @@ snippet tempart2 "Template fisica" b
 }
 \definecolor{asdf}{HTML}{4a7aa4}
 % Personalizza la formattazione della subsection
-\titleformat{\subsection}[block]{\fontsize{12}{20}\bfseries}{\normalfont\thesubsection}{.5em}{}
+\titleformat{\subsection}[block]{\fontsize{13}{20}\bfseries}{\normalfont\thesubsection}{.5em}{}
 
 
 % Personalizza la formattazione della subsubsection
-\titleformat{\subsubsection}[block]{\fontsize{10}{20}\bfseries}{\normalfont\thesubsubsection}{.5em}{}
+\titleformat{\subsubsection}[block]{\fontsize{12}{20}\bfseries}{\normalfont\thesubsubsection}{.5em}{}
 
 % Maketitle customization
 \renewcommand{\maketitle}{
@@ -352,10 +371,6 @@ snippet tempart2 "Template fisica" b
 % Personalizzazione scritta indice
 
 
-% Font
-\usepackage[osf]{newpxtext}
-
-\usepackage{sansiwona}
 
 
 % Ambienti
@@ -369,15 +384,25 @@ snippet tempart2 "Template fisica" b
 { }% space after theorem head; " " = normal interword space
 {\thmname{#1}\thmnumber{ #2}{\thmnote{~--- #3}}.\newline}
 
+\newtheoremstyle{style2}% name of the style to be used
+{15pt}% measure of space to leave above the theorem. E.g.: 3pt
+{15pt}% measure of space to leave below the theorem. E.g.: 3pt
+{\normalfont}% name of font to use in the body of the theorem
+{}% measure of space to indent
+{\sffamily\scshape\bfseries}% name of head font
+{}% punctuation between head and body
+{ }% space after theorem head; " " = normal interword space
+{\thmname{#1}\thmnumber{ #2}{\thmnote{~--- #3}}.\ }
 
 
+\theoremstyle{style2}
+\newtheorem{osservazione}{Osservazione}[section]
 
 \theoremstyle{style1}
 \newtheorem{teorema}{Teorema}[section]
 \newtheorem{corollario}{Corollario}[teorema]
 \newtheorem{lemma}{Lemma}[teorema]
 \newtheorem{definizione}{Definizione}[section]
-\newtheorem{osservazione}{Osservazione}[section]
 \newtheorem{notazione}{Notazione}[section]
 \newtheorem{esempio}{Esempio}[section]
 \newtheorem{esercizio}{Esercizio}[section]
@@ -406,6 +431,11 @@ title=#1
 
 
 
+% Font
+\usepackage[osf]{newpxtext}
+\usepackage{newpxmath}
+%\usepackage{cmupint}
+%%%
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -516,6 +546,11 @@ snippet dow "downarrow" iA
 \downarrow
 endsnippet
 
+context "math()"
+snippet spp "space" iA
+\hspace{1cm}
+endsnippet
+
 snippet pext "prodotto esterno" iA
 \wedge $0
 endsnippet
@@ -589,7 +624,7 @@ endsnippet
 
 context "math()"
 snippet dim "dimensione" iA
-\dim_{$1} $0
+\dim $0
 endsnippet
 
 snippet beg "begin{} / end{}" bA
@@ -770,8 +805,13 @@ a_{${1:n}} $0
 endsnippet
 
 context "math()"
-snippet tr "traccia" b
+snippet trr "traccia" iA
 \operatorname{Tr} $0
+endsnippet
+
+context "math()"
+snippet gcd "massimo comune divisore" iA
+\operatorname{gcd}($1,$2) $0
 endsnippet
 
 context "math()"
@@ -998,6 +1038,13 @@ snippet td "to the ... power" iA
 ^{$1}$0
 endsnippet
 
+priority 100
+context "math()"
+snippet ord "ordine" iA
+\operatorname{ord}($1) $0
+endsnippet
+
+priority 10
 context "math()"
 snippet rd "to the ... power" iA
 ^{($1)}$0
@@ -1127,17 +1174,22 @@ endsnippet
 
 context "math()"
 snippet mcal "mathcal" iA
-\mathcal{$1}$0
+\mathcal{$1} $0
+endsnippet
+
+context "math()"
+snippet mrm "mathrm" iA
+\mathrm{$1} $0
 endsnippet
 
 context "math()"
 snippet mfrak "mathfrak" iA
-\mathfrak{$1}$0
+\mathfrak{$1} $0
 endsnippet
 
 context "math()"
 snippet mscr "mathscr" iA
-\mathscr{$1}$0
+\mathscr{$1} $0
 endsnippet
 
 snippet lll "l" iA
@@ -1461,6 +1513,11 @@ snippet KK "field" iA
 endsnippet
 
 context "math()"
+snippet PP "projective space" iA
+\mathbb{P}
+endsnippet
+
+context "math()"
 snippet CC "imaginaryfield" iA
 \mathbb{C}
 endsnippet
@@ -1533,9 +1590,16 @@ snippet varr "vectorarrow" iA
 \overrightarrow{$1}$0
 endsnippet
 
+priority 10
 context "math()"
 snippet mod "absolute" iA
 \lvert $1 \rvert $0
+endsnippet
+
+priority 20
+context "math()"
+snippet pmod "modulo" iA
+\pmod{$1} $0
 endsnippet
 
 context "math()"
@@ -1685,6 +1749,11 @@ context "math()"
 snippet htag "reduced h" iA
 \hbar $0
 endsnippet
+
+snippet sfb "sf bold item" iA
+\item {\sffamily \bfseries $1} $0
+endsnippet 
+
 
 ## Notazione chimica
 snippet cee "chemnot" iA
