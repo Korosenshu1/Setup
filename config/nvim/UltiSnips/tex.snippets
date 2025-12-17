@@ -658,47 +658,6 @@ snippet fig "Figure environment" b
 \end{figure}
 endsnippet
 
-snippet nind "noindent" iA
-\noindent $0
-endsnippet
-
-snippet define "Definizione" bA
-\begin{definizione}
-	$0
-\end{definizione}
-endsnippet
-
-snippet theo "Teorema" bA
-\begin{teorema}
-	$0
-\end{teorema}
-endsnippet
-
-snippet em "Esempio" bA
-\begin{esempio}
-	$0
-\end{esempio}
-endsnippet
-
-snippet obs "Osservazione" bA
-\begin{obs}
-	$0
-\end{obs}
-endsnippet
-
-snippet box "box" bA
-\begin{boxenv}[$1]
-$2
-\end{boxenv}
-$0
-endsnippet
-
-snippet er "Esercizio" bA
-\begin{esercizio}
-	$0
-\end{esercizio}
-endsnippet
-
 context "math()"
 snippet cbi "Coefficiente binomiale" iA
 \binom{${1:n}}{${2:k}} $0
@@ -1287,13 +1246,31 @@ snippet sigm "sigma" iA
 endsnippet
 
 context "math()"
+snippet Sigm "Sigma" iA
+\Sigma $0
+endsnippet
+
+context "math()"
 snippet psi "psi" iA
 \psi $0
 endsnippet
 
+priority 10
 context "math()"
 snippet xx "cross" iA
 \times $0
+endsnippet
+
+priority 100
+context "math()"
+snippet rxx "right semi-direct product" iA
+\rtimes $0
+endsnippet
+
+priority 100
+context "math()"
+snippet lxx "left semi-direct product" iA
+\ltimes $0
 endsnippet
 
 priority 100
@@ -1465,7 +1442,7 @@ endsnippet
 
 context "math()"
 snippet ims "immersione" iA
-\hookrightarrow $0
+\longhookrightarrow $0
 endsnippet
 
 context "math()"
@@ -1485,6 +1462,16 @@ endsnippet
 context "math()"
 snippet NN "n" iA
 \mathbb{N}
+endsnippet
+
+context "math()"
+snippet FF "f" iA
+\mathbb{F}
+endsnippet
+
+context "math()"
+snippet TT "T" iA
+\mathbb{T}
 endsnippet
 
 snippet Nn "cap" iA
@@ -1655,53 +1642,67 @@ $0
 \end{center}
 endsnippet
 
-###################
-snippet teo "teorema" b
+## Ambienti matematici
+
+snippet box "box" bA
+\begin{boxenv}[$1]
+$2
+\end{boxenv}
+$0
+endsnippet
+
+snippet th "teorema" bA
 \begin{teorema}
 $0
 \end{teorema}
 endsnippet
 
-snippet prop "proposizione" b
+snippet prop "proposizione" bA
 \begin{prop}
 $0
 \end{prop}
 endsnippet
 
-snippet def "definizione" b
+snippet def "definizione" bA
 \begin{definizione}
 $0
 \end{definizione}
 endsnippet
 
-snippet esm "esempio" b
+snippet esm "esempio" bA
 \begin{esempio}
 $0
 \end{esempio}
 endsnippet
 
-snippet lemma "lemma" b
+snippet lem "lemma" bA
 \begin{lemma}
 $0
 \end{lemma}
 endsnippet
 
-snippet cor "corollario" b
+snippet cor "corollario" bA
 \begin{corollario}
 $0
 \end{corollario}
 endsnippet
 
-snippet oss "osservazione" b
-\begin{osservazione}
-$0
-\end{osservazione}
-endsnippet
-
-snippet ex "esercizio" b
+snippet ex "esercizio" bA
 \begin{esercizio}
 $0
 \end{esercizio}
+endsnippet
+
+snippet proof "dimostrazione" bA
+\begin{proof}
+$0
+\end{proof}
+endsnippet
+
+snippet svol "svolgimento" bA
+\begin{svolgimento}
+$0
+\end{svolgimento}
 endsnippet
 
 ### Meccanica Quantistica
