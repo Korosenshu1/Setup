@@ -140,6 +140,7 @@ alias bt="bluetoothctl"
 alias yt="yt-dlp"
 alias yta="yt-dlp -x -f bestaudio/best"
 alias ytv="yt-dlp -f 'bv*+ba/best'"
+alias fetch="fastfetch"
 ## MAC addresses
 export airpods="5C:1B:F4:07:2D:BD"
 export casse="7C:96:D2:56:99:32"

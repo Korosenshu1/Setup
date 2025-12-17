@@ -63,43 +63,22 @@ c() {
     fi
 }
 
-## Fisica
-
-m() {
-	nvim ~/Documents/Note/Fisica/Meccanica\ Quantistica/appunti/master.tex
-}
-
-am() {
-	cp ~/Documents/Note/Fisica/Meccanica\ Quantistica/appunti/master.pdf ~/Documents/"Note di Meccanica Quantistica.pdf"
-}
-
-o() {
-	nvim ~/Documents/Note/Fisica/Ottica/master.tex
-}
-
-ao() {
-	cp ~/Documents/Note/Fisica/Ottica/master.pdf ~/Documents/"Note di Ottica.pdf"
-}
-
-
-## Chimica
-
-c() {
-	nvim ~/Documents/Note/Chimica/Chimica\ Generale/master.tex
-}
-
-ac() {
-	cp ~/Documents/Note/Chimica/Chimica\ Generale/master.pdf ~/Documents/"Note di Chimica Generale.pdf"
-}
-
 ## Matematica
 
-a() {
-	nvim ~/Documents/Note/Matematica/Analisi/master.tex
+a2() {
+	nvim ~/Documents/Note/Matematica/Analisi\ 2/master.tex
 }
 
-aa() {
-	cp ~/Documents/Note/Matematica/Analisi/master.pdf ~/Documents/"Note di Analisi.pdf"
+aa2() {
+	cp ~/Documents/Note/Matematica/Analisi\ 2/master.pdf ~/Documents/"Note di Analisi 2.pdf"
+}
+
+a3() {
+	nvim ~/Documents/Note/Matematica/Analisi\ 3/master.tex
+}
+
+aa3() {
+	cp ~/Documents/Note/Matematica/Analisi\ 3/master.pdf ~/Documents/"Note di Analisi 3.pdf"
 }
 
 to() {
@@ -118,13 +97,30 @@ aar() {
 	cp ~/Documents/Note/Matematica/Aritmetica/master.pdf ~/Documents/"Note di Aritmetica.pdf"
 }
 
-ag() {
-	nvim ~/Documents/Note/Matematica/Algebra/master.tex
+eag() {
+	nvim ~/Documents/Note/Matematica/Algebra\ 1/Esercitazioni/master.tex
 }
 
-aag() {
-	cp ~/Documents/Note/Matematica/Algebra/master.pdf ~/Documents/"Note di Algebra.pdf"
+aeag() {
+	cp ~/Documents/Note/Matematica/Algebra\ 1/Esercitazioni/master.pdf ~/Documents/"Esercizi di Algebra.pdf"
 }
+
+ag1() {
+	nvim ~/Documents/Note/Matematica/Algebra\ 1/Teoria/master.tex
+}
+
+aag1() {
+	cp ~/Documents/Note/Matematica/Algebra\ 1/Teoria/master.pdf ~/Documents/"Note di Algebra 1.pdf"
+}
+
+gd() {
+	nvim ~/Documents/Note/Matematica/GTD/master.tex
+}
+
+agd() {
+	cp ~/Documents/Note/Matematica/GTD/master.pdf ~/Documents/"Note di GTD.pdf"
+}
+
 
 t() {
 	nvim ~/Documents/Note/Tesi/appunti/master.tex
@@ -225,12 +221,6 @@ cbin() {
 	cd ~/.local/bin/	
 }
 
-## Dunst commands
-dr() {
-	pkill dunst
-	dunst &
-}
-
 ## Groff compiling
 
 ge() {
@@ -242,4 +232,13 @@ ge() {
 gc() {
 	groff -k -ms master.ms -Tpdf > master.pdf
 	zathura master.pdf
+}
+
+## Git
+gup() {
+	cd ~/Documents/Note
+	git add .
+	git commit -m "Update"
+	git push
+	cd 
 }

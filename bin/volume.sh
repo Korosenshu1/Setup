@@ -2,19 +2,19 @@
 
 # Funzione per alzare il volume
 increase_volume() {
-    pulsemixer --change-volume +10
+    wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%+
     pkill -RTMIN+2 dwmblocks
 }
 
 # Funzione per abbassare il volume
 decrease_volume() {
-    pulsemixer --change-volume -10
+    wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-
     pkill -RTMIN+2 dwmblocks
 }
 
 # Funzione per attivare/disattivare il mute
 toggle_mute() {
-    pulsemixer --toggle-mute 
+    wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
     pkill -RTMIN+2 dwmblocks
 }
 
