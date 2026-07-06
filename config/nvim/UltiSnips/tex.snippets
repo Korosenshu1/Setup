@@ -508,6 +508,11 @@ snippet Abs "parentesi prodotto" iA
 \left\langle $1 \right\rangle$0
 endsnippet
 
+context "math()"
+snippet MO "Massa solare" iA
+\ M_{\odot} $0
+endsnippet
+
 priority 100
 context "math()"
 snippet dot "derivata Newton" iA
@@ -921,7 +926,7 @@ snippet conj "conjugate" iA
 endsnippet
 
 snippet sum "sum" w
-\sum_{i=${1:1}}^{${2:\infty}} ${3:a_n z^n}
+\sum_{i=${1:1}}^{${2:+\infty}} $3
 endsnippet
 
 snippet taylor "taylor" w
@@ -968,6 +973,11 @@ snippet prt "curveddelt" iA
 endsnippet
 
 context "math()"
+snippet dd "differential" iA
+\dd $0
+endsnippet
+
+context "math()"
 snippet dpd "dp/dpx" iA
 \frac{\partial $1}{\partial $2} $0
 endsnippet
@@ -977,6 +987,13 @@ snippet dsd "d/dx" iA
 \frac{d $1}{d $2} $0
 endsnippet
 
+priority 10
+context "math()"
+snippet nsq "nth square root" iA
+\sqrt[$1]{$2} $0
+endsnippet
+
+priority 1
 context "math()"
 snippet sq "\sqrt{}" iA
 \sqrt{${1:${VISUAL}}} $0
@@ -1142,7 +1159,7 @@ snippet mrm "mathrm" iA
 endsnippet
 
 context "math()"
-snippet mfrak "mathfrak" iA
+snippet fk "mathfrak" iA
 \mathfrak{$1} $0
 endsnippet
 
@@ -1299,6 +1316,11 @@ snippet Lam "Lambda" iA
 endsnippet
 
 context "math()"
+snippet eta "eta" iA
+\eta $0
+endsnippet
+
+context "math()"
 snippet thet "theta" iA
 \theta $0
 endsnippet
@@ -1336,7 +1358,7 @@ endsnippet
 priority 100
 context "math()"
 snippet int "integral" wA
-\int_{$1} $0
+\int $0
 endsnippet
 
 priority 300
@@ -1390,6 +1412,16 @@ priority 200
 context "math()"
 snippet <-> "leftrightarrow" iA
 \leftrightarrow
+endsnippet
+
+context "math()"
+snippet xmap "adaptive mapsto" iA 
+\xmapsto{$1} $0
+endsnippet
+
+context "math()"
+snippet xraw "adaptive right arrow" iA 
+\xrightarrow{$1} $0
 endsnippet
 
 context "math()"
@@ -1705,6 +1737,12 @@ $0
 \end{svolgimento}
 endsnippet
 
+snippet oss "osservazione" bA
+\begin{osservazione}
+$0
+\end{osservazione}
+endsnippet
+
 ### Meccanica Quantistica
 context "math()"
 snippet bk "braket" iA
@@ -1755,6 +1793,38 @@ snippet sfb "sf bold item" iA
 \item {\sffamily \bfseries $1} $0
 endsnippet 
 
+snippet tfig "testo affianco figura" b 
+\begin{center}
+	\begin{minipage}
+		{.45\columnwidth}
+	$2
+	\end{minipage}
+	\hfill
+	\begin{minipage}
+		{.45\columnwidth}
+	\centering
+	\includegraphics[width=.8\columnwidth]{$1}
+	\end{minipage}
+\end{center}
+$0
+endsnippet
+
+snippet ffig "figura affianco figura" b 
+\begin{center}
+	\begin{minipage}
+		{.45\columnwidth}
+	\centering
+	\includegraphics[width=.8\columnwidth]{$2}
+	\end{minipage}
+	\hfill
+	\begin{minipage}
+		{.45\columnwidth}
+	\centering
+	\includegraphics[width=.8\columnwidth]{$1}
+	\end{minipage}
+\end{center}
+$0
+endsnippet
 
 ## Notazione chimica
 snippet cee "chemnot" iA
