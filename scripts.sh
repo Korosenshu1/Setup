@@ -63,72 +63,44 @@ c() {
     fi
 }
 
-## Matematica
-
-a2() {
-	nvim ~/Documents/Note/Matematica/Analisi\ 2/master.tex
+## Diario
+nd() {
+	nvim ~/Documents/Personale/diario/master.tex
 }
 
-aa2() {
-	cp ~/Documents/Note/Matematica/Analisi\ 2/master.pdf ~/Documents/"Note di Analisi 2.pdf"
+## Fisica
+as() {
+	nvim ~/Documents/Note/Fisica/Astrofisica/master.tex
 }
 
-a3() {
-	nvim ~/Documents/Note/Matematica/Analisi\ 3/master.tex
+aas() {
+	cp ~/Documents/Note/Fisica/Astrofisica/master.pdf ~/Documents/"Note di Astrofisica.pdf"
 }
 
-aa3() {
-	cp ~/Documents/Note/Matematica/Analisi\ 3/master.pdf ~/Documents/"Note di Analisi 3.pdf"
+fs() {
+	nvim ~/Documents/Note/Fisica/Fisica\ statistica/master.tex
 }
 
-to() {
-	nvim ~/Documents/Note/Matematica/Topologia/master.tex
+afs() {
+	cp ~/Documents/Note/Fisica/Fisica\ statistica/master.pdf ~/Documents/"Note di Fisica statistica.pdf"
 }
 
-ato() {
-	cp ~/Documents/Note/Matematica/Topologia/master.pdf ~/Documents/"Note di Topologia.pdf"
+fd() {
+	nvim ~/Documents/Note/Fisica/Fluidodinamica/master.tex
 }
 
-ar() {
-	nvim ~/Documents/Note/Matematica/Aritmetica/master.tex
+afd() {
+	cp ~/Documents/Note/Fisica/Fluidodinamica/master.pdf ~/Documents/"Note di Fluidodinamica.pdf"
 }
 
-aar() {
-	cp ~/Documents/Note/Matematica/Aritmetica/master.pdf ~/Documents/"Note di Aritmetica.pdf"
+cs() {
+	nvim ~/Documents/Note/Fisica/Cosmologia/master.tex
 }
 
-eag() {
-	nvim ~/Documents/Note/Matematica/Algebra\ 1/Esercitazioni/master.tex
+acs() {
+	cp ~/Documents/Note/Fisica/Cosmologia/master.pdf ~/Documents/"Note di Cosmologia.pdf"
 }
 
-aeag() {
-	cp ~/Documents/Note/Matematica/Algebra\ 1/Esercitazioni/master.pdf ~/Documents/"Esercizi di Algebra.pdf"
-}
-
-ag1() {
-	nvim ~/Documents/Note/Matematica/Algebra\ 1/Teoria/master.tex
-}
-
-aag1() {
-	cp ~/Documents/Note/Matematica/Algebra\ 1/Teoria/master.pdf ~/Documents/"Note di Algebra 1.pdf"
-}
-
-gd() {
-	nvim ~/Documents/Note/Matematica/GTD/master.tex
-}
-
-agd() {
-	cp ~/Documents/Note/Matematica/GTD/master.pdf ~/Documents/"Note di GTD.pdf"
-}
-
-
-t() {
-	nvim ~/Documents/Note/Tesi/appunti/master.tex
-}
-
-at() {
-	cp ~/Documents/Note/Tesi/appunti/master.pdf ~/Documents/"Tesi.pdf"
-}
 ## Display
 
 dpon() {
@@ -206,6 +178,14 @@ airon() {
 
 airoff() {
 	bluetoothctl disconnect $airpods
+}
+
+hon() {
+	bluetoothctl connect $jbl
+}
+
+hoff() {
+	bluetoothctl disconnect $jbl
 }
 
 ## Nav

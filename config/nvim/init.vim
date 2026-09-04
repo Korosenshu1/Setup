@@ -24,10 +24,10 @@ call plug#end()
     let g:vimtex_quickfix_mode=0
 
 " Autosave
-autocmd TextChanged,TextChangedI *
-    \ if &buftype ==# '' || &buftype == 'acwrite' |
-    \     silent write |
-    \ endif
+"autocmd TextChanged,TextChangedI *
+"    \ if &buftype ==# '' || &buftype == 'acwrite' |
+"    \     silent write |
+"    \ endif
 
 " Numbers on the side    
 set number relativenumber

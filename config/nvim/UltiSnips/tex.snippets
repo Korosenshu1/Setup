@@ -8,478 +8,6 @@ def env(name):
 	return x != '0' and y != '0'
 endglobal
 
-snippet tempart1 "Template matematica" b
-\\documentclass[11pt, a4paper]{scrartcl}
-% Packages
-\usepackage[margin=1.25in]{geometry}
-\usepackage{index}
-\usepackage{amsbsy} % Bold math symbols
-\makeindex
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{tcolorbox}
-\tcbuselibrary{theorems}
-\tcbuselibrary{skins}
-\tcbuselibrary{breakable}
-\usepackage{varwidth}
-\usepackage{textcomp}
-\usepackage{amsmath, amssymb}
-\usepackage{esint}
-\usepackage{titlesec}
-\usepackage{xcolor}
-\usepackage{titling}
-\usepackage[linktocpage]{hyperref}
-\usepackage{pgfplots}
-\usepackage{multicol}
-\setlength{\columnsep}{2em}
-\usepackage{caption}
-\usepackage{amsthm}
-\usepackage{import}
-\usepackage{cancel}
-\usepackage{caption}
-\usepackage{nicematrix}
-%\usepackage{mathrsfs}
-\usepackage{mathtools}
-%\usepackage{parskip}
-\usepackage{pythonhighlight}
-\usepackage{enumerate}
-\usepackage{graphicx}
-\usepackage{tikz}
-\usepackage{tikz-cd}
-\usepackage[italian]{babel}
-% To reset footnote numbering each page
-\usepackage[perpage]{footmisc}
-\usepackage{setspace}
-\setstretch{1.2}
-
-% Titles 
-\title{$1}
-\author{Manuel Deodato}
-\date{}
-
-
-% svolgimento
-\newenvironment{svolgimento}{\renewcommand\qedsymbol{$\blacksquare$}\begin{proof}[Svolgimento]}{\end{proof}}
-
-
-%%%%% tcolorbox setup
-
-% Teorema e proposizione
-\newtcbtheorem[number within=section]{teorema}{Teorema}
-{breakable, top=0.2mm, bottom=0.2mm, boxrule=0mm,arc =.5 mm, colframe=blue!10, coltitle=black, fonttitle=\bfseries, colback=blue!5!white, theorem style=plain apart}{th}
-
-\newtcbtheorem[number within=section]{prop}{Proposizione}
-{breakable, top=0.2mm, bottom=0.2mm, boxrule=0mm,arc =.5 mm, colframe=blue!10, coltitle=black, fonttitle=\bfseries, colback=blue!5!white, theorem style=plain apart}{prop}
-
-
-
-
-
-% Definizione
-\definecolor{greendef}{HTML}{b8d8be}
-
-\newtcbtheorem[number within=section]{definizione}{Definizione}
-{breakable, top=0.2mm, bottom=0.2mm, boxrule=0mm, arc=.5mm, colframe=greendef, coltitle=black, fonttitle=\bfseries, theorem style = plain apart, colback=greendef!50!white}{def}
-
-
-% Esempio
-\theoremstyle{definition}
-\newtheorem{esempio}{Esempio}
-
-%\definecolor{empurple}{HTML}{6e5e89}
-
-%\newtcbtheorem{esempio}{Esempio}{left=0mm,arc=0mm, colframe=empurple!10!white, coltitle=black, fonttitle=\bfseries, theorem style = plain, colback=empurple!20!white, colframe=empurple!90!white, boxrule=1pt, sharp corners, top=.2mm,bottom=.2mm}{es}
-
-\tcolorboxenvironment{esempio}{blanker,breakable,left=5mm,before skip=10pt,after skip=10pt, borderline west={1mm}{0pt}{greendef}}
-
-\numberwithin{esempio}{section}
-
-
-% Lemma e Corollario
-\definecolor{lemcor}{HTML}{a78d8a}
-
-\newtcbtheorem[number within=section]{lemma}{Lemma}
-{breakable, top=0.2mm, bottom=0.2mm, boxrule=0mm, arc=.5mm, colframe=lemcor!10!white, coltitle=black, fonttitle=\bfseries, theorem style = plain apart, colframe=lemcor!50!white,colback=lemcor!20!white}{lem}
-
-\newtcbtheorem[number within=section]{corollario}{Corollario}
-{breakable, top=0.2mm, bottom=0.2mm, boxrule=0mm, arc=.5mm, colframe=lemcor!10!white, coltitle=black, fonttitle=\bfseries, theorem style = plain apart, colframe=lemcor!50!white,colback=lemcor!20!white}{cor}
-
-
-
-% Osservazione
-\theoremstyle{definition}
-\newtheorem{obs}{Osservazione}
-
-\definecolor{coloros}{HTML}{6e5e89}
-
-\tcolorboxenvironment{obs}{blanker,breakable,left=5mm,before skip=10pt,after skip=10pt, borderline west={1mm}{0pt}{coloros}}
-
-\numberwithin{obs}{section}
-
-% Nota
-\newtheorem{nota}{Nota}
-
-\definecolor{ncol}{HTML}{f9ebbe}
-
-\tcolorboxenvironment{nota}{blanker,breakable,left=5mm,before skip=10pt,after skip=10pt, borderline west={1mm}{0pt}{ncol}}
-
-\numberwithin{nota}{section}
-
-%% Generic box
-\newtcolorbox{eqbox}[1][]
-{
-colback=gray!10,
-arc=0pt,
-boxrule=0pt,
-title=#1
-}
-
- \newenvironment{boxenv}[1][]{
-    \begin{eqbox}[#1]
-    }{
-   \end{eqbox}
-}
-
-
-
-%%%%%%%%%% Medie con integrali multipli
-\def\Yint#1{\mathchoice
-    {\YYint\displaystyle\textstyle{#1}}%
-    {\YYint\textstyle\scriptstyle{#1}}%
-    {\YYint\scriptstyle\scriptscriptstyle{#1}}%
-    {\YYint\scriptscriptstyle\scriptscriptstyle{#1}}%
-      \!\iint}
-\def\YYint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\iint}$}
-    \vcenter{\hbox{$#2#3$}}\kern-.51\wd0}}
-\def\longdash{{-}\mkern-3.5mu{-}} 
-   % consider using "\mkern-7.5mu" if esint package is loaded
-\def\tiltlongdash{\rotatebox[origin=c]{15}{$\longdash$}}
-\def\fiint{\Yint\tiltlongdash}
-
-\def\Zint#1{\mathchoice
-    {\YYint\displaystyle\textstyle{#1}}%
-    {\YYint\textstyle\scriptstyle{#1}}%
-    {\YYint\scriptstyle\scriptscriptstyle{#1}}%
-    {\YYint\scriptscriptstyle\scriptscriptstyle{#1}}%
-      \!\iiint}
-      \def\tilongdash{\mkern6mu{-}\mkern-4mu{-}\mkern-5mu{-}} 
-   % consider using "\mkern-7.5mu" if esint package is loaded
-\def\titiltlongdash{\rotatebox[origin=c]{15}{$\tilongdash$}}
-\def\fiiint{\Zint\titiltlongdash}
-
-%Captions
-\captionsetup[figure]{font=footnotesize,labelfont=footnotesize}
-\captionsetup[table]{font=footnotesize,labelfont=footnotesize}
-%Titlesec
-\titleformat{\section}
-{\fontsize{15}{20}\sffamily\scshape}
-{\normalfont\color{gray}{\fontsize{20}{20}\selectfont\thesection}}
-{0.7em}
-{}
-\hypersetup{colorlinks,breaklinks, linkcolor=[RGB]{74, 122, 164}}
-\definecolor{asdf}{HTML}{4a7aa4}
-% Personalizza la formattazione della subsection
-\titleformat{\subsection}[block]{\fontsize{13}{20}\bfseries}{\normalfont\thesubsection}{.5em}{}
-
-
-% Personalizza la formattazione della subsubsection
-\titleformat{\subsubsection}[block]{\fontsize{12}{20}\bfseries}{\normalfont\thesubsubsection}{.5em}{}
-
-% Maketitle customization
-\renewcommand{\maketitle}{
-\begin{center}
-{\sffamily
-{\fontsize{20}{20}\selectfont\MakeUppercase\thetitle}}
-
-\vspace{0.2in}
-
-{\large\scshape\sffamily\theauthor}
-\end{center}
-}
-
-%Evaluate symbol
-\DeclareMathOperator{\di}{d\!}
-\newcommand*\Eval[3]{\left.#1\right\rvert_{#2}^{#3}}
-
-%%%%%%% Numero delle equazioni in formato a.b
-\numberwithin{equation}{subsection}
-%%%%%
-
-%%%%%%%%%% Personalizzazione numeri lista
-\renewcommand{\theenumi}{(\arabic{enumi})}
-
-%%%% Table of contents
-
-\usepackage[titles]{tocloft}
-
-\renewcommand{\cftdot}{}
-\usepackage{titletoc}
-%\setcounter{tocdepth}{2}
-
-%%%%%%%%%%%%%%%% Toc style
-
-% Personalizzazione scritta indice
-
-
-% Font
-%\usepackage[osf]{newpxtext}
-%\usepackage{newtxmath}
-\usepackage{kpfonts}
-\usepackage{sansiwona}
-\begin{document}
-maketitle
-\newpage
-\tableofcontents 
-\newpage
-\section{$2}
-
-$0	
-
-\end{document}
-endsnippet
-
-
-snippet tempart2 "Template fisica" b
-\\documentclass[11pt, a4paper]{scrartcl} % Packages
-%\usepackage{stix}
-\usepackage{sansiwona}
-\usepackage[margin=1.5in]{geometry}
-\usepackage{index}
-\makeindex
-\usepackage[utf8]{inputenc}
-\usepackage[T1]{fontenc}
-\usepackage{varwidth}
-\usepackage{amsmath, amssymb, amsbsy}
-\usepackage{esint}
-\usepackage{titlesec}
-\usepackage{xcolor}
-\usepackage{titling}
-\usepackage{braket}
-\usepackage{tensor}
-\usepackage[linktocpage]{hyperref}
-\usepackage{pgfplots}
-\usepackage{multicol}
-\setlength{\columnsep}{2em}
-\usepackage{caption}
-\usepackage{amsthm}
-\usepackage{import}
-\usepackage{cancel}
-\usepackage{caption}
-\usepackage{tcolorbox}
-\usepackage{nicematrix}
-\usepackage{mathtools}
-\usepackage{enumerate}
-\usepackage{graphicx}
-\usepackage{lipsum}
-\usepackage[italian]{babel}
-% To reset footnote numbering each page
-\usepackage[perpage]{footmisc}
-\usepackage{setspace}
-\setstretch{1.2}
-
-%Captions
-\captionsetup[figure]{font=footnotesize,labelfont=footnotesize}
-\captionsetup[table]{font=footnotesize,labelfont=footnotesize}
-%Titlesec
-\titleformat{\section}
-{\fontsize{15}{20}\sffamily\scshape}
-{\normalfont\color{gray}{\fontsize{20}{20}\selectfont\thesection}}
-{0.7em}
-{}
-\hypersetup{colorlinks,breaklinks, linkcolor=[RGB]{74, 122, 164}}
-
-\newcommand\vertarrowbox[3][6ex]{%
-  \begin{array}[t]{@{}c@{}} #2 \
-  \left\uparrow\vcenter{\hrule height #1}\right.\kern-\nulldelimiterspace\
-  \makebox[0pt]{\scriptsize#3}
-  \end{array}%
-}
-\definecolor{asdf}{HTML}{4a7aa4}
-% Personalizza la formattazione della subsection
-\titleformat{\subsection}[block]{\fontsize{13}{20}\bfseries}{\normalfont\thesubsection}{.5em}{}
-
-
-% Personalizza la formattazione della subsubsection
-\titleformat{\subsubsection}[block]{\fontsize{12}{20}\bfseries}{\normalfont\thesubsubsection}{.5em}{}
-
-% Maketitle customization
-\renewcommand{\maketitle}{
-\begin{center}
-{\sffamily
-{\fontsize{20}{20}\selectfont\MakeUppercase\thetitle}}
-
-\vspace{0.2in}
-
-{\large\scshape\sffamily\theauthor}
-\end{center}
-}
-
-% Titles 
-\title{$1}
-\author{Manuel Deodato}
-\date{}
-
-
-
-%Evaluate symbol
-\DeclareMathOperator{\di}{d\!}
-\newcommand*\Eval[3]{\left.#1\right\rvert_{#2}^{#3}}
-
-%%%%%%% Numero delle equazioni in formato a.b
-\numberwithin{equation}{subsection}
-%%%%%
-
-%%%%%%%%%% Personalizzazione numeri lista
-\renewcommand{\theenumi}{(\arabic{enumi})}
-
-%%%%%%%%%% Medie con integrali multipli
-\def\Yint#1{\mathchoice
-    {\YYint\displaystyle\textstyle{#1}}%
-    {\YYint\textstyle\scriptstyle{#1}}%
-    {\YYint\scriptstyle\scriptscriptstyle{#1}}%
-    {\YYint\scriptscriptstyle\scriptscriptstyle{#1}}%
-      \!\iint}
-\def\YYint#1#2#3{{\setbox0=\hbox{$#1{#2#3}{\iint}$}
-    \vcenter{\hbox{$#2#3$}}\kern-.51\wd0}}
-\def\longdash{{-}\mkern-3.5mu{-}} 
-   % consider using "\mkern-7.5mu" if esint package is loaded
-\def\tiltlongdash{\rotatebox[origin=c]{15}{$\longdash$}}
-\def\fiint{\Yint\tiltlongdash}
-
-\def\Zint#1{\mathchoice
-    {\YYint\displaystyle\textstyle{#1}}%
-    {\YYint\textstyle\scriptstyle{#1}}%
-    {\YYint\scriptstyle\scriptscriptstyle{#1}}%
-    {\YYint\scriptscriptstyle\scriptscriptstyle{#1}}%
-      \!\iiint}
-      \def\tilongdash{\mkern6mu{-}\mkern-4mu{-}\mkern-5mu{-}} 
-   % consider using "\mkern-7.5mu" if esint package is loaded
-\def\titiltlongdash{\rotatebox[origin=c]{15}{$\tilongdash$}}
-\def\fiiint{\Zint\titiltlongdash}
-
-
-%%%% Table of contents
-
-\usepackage[titles]{tocloft}
-
-\renewcommand{\cftdot}{}
-\usepackage{titletoc}
-%\setcounter{tocdepth}{2}
-
-%%%%%%%%%%%%%%%% Toc style
-
-% Personalizzazione scritta indice
-
-
-
-
-% Ambienti
-\newtheoremstyle{style1}% name of the style to be used
-{15pt}% measure of space to leave above the theorem. E.g.: 3pt
-{15pt}% measure of space to leave below the theorem. E.g.: 3pt
-{\normalfont}% name of font to use in the body of the theorem
-{}% measure of space to indent
-{\sffamily\scshape\bfseries}% name of head font
-{}% punctuation between head and body
-{ }% space after theorem head; " " = normal interword space
-{\thmname{#1}\thmnumber{ #2}{\thmnote{~--- #3}}.\newline}
-
-\newtheoremstyle{style2}% name of the style to be used
-{15pt}% measure of space to leave above the theorem. E.g.: 3pt
-{15pt}% measure of space to leave below the theorem. E.g.: 3pt
-{\normalfont}% name of font to use in the body of the theorem
-{}% measure of space to indent
-{\sffamily\scshape\bfseries}% name of head font
-{}% punctuation between head and body
-{ }% space after theorem head; " " = normal interword space
-{\thmname{#1}\thmnumber{ #2}{\thmnote{~--- #3}}.\ }
-
-
-\theoremstyle{style2}
-\newtheorem{osservazione}{Osservazione}[section]
-
-\theoremstyle{style1}
-\newtheorem{teorema}{Teorema}[section]
-\newtheorem{corollario}{Corollario}[teorema]
-\newtheorem{lemma}{Lemma}[teorema]
-\newtheorem{definizione}{Definizione}[section]
-\newtheorem{notazione}{Notazione}[section]
-\newtheorem{esempio}{Esempio}[section]
-\newtheorem{esercizio}{Esercizio}[section]
-
-\renewcommand\qedsymbol{$\blacksquare$}
-
-\newenvironment{svolgimento}{\renewcommand\qedsymbol{$\spadesuit$}\begin{proof}[Svolgimento]}{\end{proof}}
-
-%% Generic box
-\newtcolorbox{eqbox}[1][]
-{
-colback=gray!10,
-arc=0pt,
-boxrule=0pt,
-title=#1
-}
-
- \newenvironment{boxenv}[1][]{
-    \begin{eqbox}[#1]
-    }{
-   \end{eqbox}
-}
-
-
-
-
-
-
-% Font
-\usepackage[osf]{newpxtext}
-\usepackage{newpxmath}
-%\usepackage{cmupint}
-%%%
-
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\begin{document}
-\maketitle
-\newpage
-\tableofcontents 
-\newpage
-\section{$2}
-
-$0 
-
-\end{document}
-endsnippet
-
-
-
-
-
-
-
-
-
-
-
-snippet figure "graphic" b
-\begin{figure}[h!]
-	\centering
-	\includegraphics[width=1\columnwidth]{$1}
-	\caption{$2}
-\end{figure}
-$0
-endsnippet
-
-snippet incg "graphic" iA
-\begin{center}
-	\includegraphics[width=\columnwidth]{$1}
-	\captionof{figure}{$2}
-	\label{$3}
-\end{center}
-$0
-endsnippet
-
 snippet sect "section" iA
 \section{$1}
 
@@ -508,9 +36,10 @@ snippet Abs "parentesi prodotto" iA
 \left\langle $1 \right\rangle$0
 endsnippet
 
+priority 200
 context "math()"
-snippet MO "Massa solare" iA
-\ M_{\odot} $0
+snippet sdot "Sole" iA
+\odot $0
 endsnippet
 
 priority 100
@@ -532,14 +61,8 @@ endsnippet
 
 context "math()"
 snippet til "tilde" iA
-\widetilde{$1}$0
+\tilde{$1}$0
 endsnippet
-
-context "math()"
-snippet sse "if and only if" iA
-\Leftrightarrow $0
-endsnippet
-
 
 context "math()"
 snippet upp "uparrow" iA
@@ -556,29 +79,8 @@ snippet spp "space" iA
 \hspace{1cm}
 endsnippet
 
-snippet pext "prodotto esterno" iA
-\wedge $0
-endsnippet
-
 snippet pscal "prodotto scalare" iA
 \cdot $0
-endsnippet
-
-snippet tikz "tikz figure" b
-
-\vspace{2em}
-
-\begin{center}
-\begin{tikzpicture}
-$1
-\end{tikzpicture}
-\end{center}
-
-$0
-endsnippet
-
-snippet PP "p cursive" iA
-\mathscr{P}($1)$0
 endsnippet
 
 priority 10
@@ -603,8 +105,13 @@ snippet emph "grassetto" iA
 endsnippet
 
 context "math()"
-snippet ohm "Omega" iA
+snippet Ohm "Omega" iA
 \Omega $0
+endsnippet
+
+context "math()"
+snippet ohm "Omega" iA
+\omega $0
 endsnippet
 
 context "math()"
@@ -625,11 +132,6 @@ endsnippet
 context "math()"
 snippet unnd "underline" iA
 \underline{$1}$0
-endsnippet
-
-context "math()"
-snippet dim "dimensione" iA
-\dim $0
 endsnippet
 
 snippet beg "begin{} / end{}" bA
@@ -663,11 +165,6 @@ snippet fig "Figure environment" b
 \end{figure}
 endsnippet
 
-context "math()"
-snippet cbi "Coefficiente binomiale" iA
-\binom{${1:n}}{${2:k}} $0
-endsnippet
-
 snippet enm "Enumerate" bA
 \begin{enumerate}[(a).]
 	\item $0
@@ -690,46 +187,6 @@ snippet def "define" iA
 \overset{\text{def}}{=}
 endsnippet
 
-context "math()" 
-snippet ids "indices" iA
-\indices{^{$1}_{$2}} $0
-endsnippet
-
-context "math()" 
-snippet ~= "Similar or equal to" iA
-\simeq
-endsnippet
-
-context "math()" 
-snippet ~ "Similar" iA
-\sim
-endsnippet
-
-context "math()" 
-snippet ~~ "Approx" iA
-\approx
-endsnippet
-
-snippet desc "Description" b
-\begin{description}
-	\item[$1] $0
-\end{description}
-endsnippet
-
-snippet pac "Package" b
-\usepackage[${1:options}]{${2:package}}$0
-endsnippet
-
-context "math()"
-snippet lor "or" iA
-\lor
-endsnippet
-
-context "math()"
-snippet land "and" iA
-\land
-endsnippet
-
 snippet => "implies" Ai
 \Rightarrow $0
 endsnippet
@@ -747,40 +204,11 @@ snippet mk "Math" wA
 $$1$$0
 endsnippet
 
-snippet mk1 "Math" wA
-$${1}$`!p
-if t[2] and t[2][0] not in [',', '.', '?', '-', ' ']:
-	snip.rv = ' '
-else:
-	snip.rv = ''
-`$2
-endsnippet
-
 snippet dm "Math" wA
 \[
 ${1:${VISUAL}}
 \] 
 $0
-endsnippet
-
-context "math()"
-snippet asuc "Successione" iA
-a_{${1:n}} $0
-endsnippet
-
-context "math()"
-snippet trr "traccia" iA
-\operatorname{Tr} $0
-endsnippet
-
-context "math()"
-snippet gcd "massimo comune divisore" iA
-\operatorname{gcd}($1,$2) $0
-endsnippet
-
-context "math()"
-snippet nsuc "Successione" iA
-${1:s}_{${2:n}} $0
 endsnippet
 
 snippet split "split" wA
@@ -849,22 +277,8 @@ snip.rv = subprocess.check_output(['wolframscript', '-code', code])
 `
 endsnippet
 
-snippet == "equals" iA
-&= $1 \\\\
-endsnippet
-
 snippet != "equals" iA
 \neq 
-endsnippet
-
-context "math()"
-snippet ceil "ceil" iA
-\left\lceil $1 \right\rceil $0
-endsnippet
-
-context "math()"
-snippet floor "floor" iA
-\left\lfloor $1 \right\rfloor$0
 endsnippet
 
 snippet pmat "pmat" iA
@@ -880,32 +294,6 @@ snippet rbs "left( right)" iA
 \left(${1:${VISUAL}}\right) $0
 endsnippet
 
-snippet lr "left( right)" i
-\left( ${1:${VISUAL}} \right) $0
-endsnippet
-
-snippet lr( "left( right)" i
-\left( ${1:${VISUAL}} \right) $0
-endsnippet
-
-snippet lr| "left| right|" i
-\left| ${1:${VISUAL}} \right| $0
-endsnippet
-
-snippet lr{ "left\{ right\}" i
-\left\\{ ${1:${VISUAL}} \right\\} $0
-endsnippet
-
-context "math()"
-snippet rsb "left\{ right\}" iA
-( ${1:${VISUAL}} ] $0
-endsnippet
-
-context "math()"
-snippet srb "left\{ right\}" iA
-[ ${1:${VISUAL}} ) $0
-endsnippet
-
 context "math()"
 snippet cbs "left\{ right\}" iA
 \left\\{ ${1:${VISUAL}} \right\\} $0
@@ -916,55 +304,17 @@ snippet sbs "left[ right]" iA
 \left[ ${1:${VISUAL}} \right] $0
 endsnippet
 
-snippet lra "leftangle rightangle" iA
-\left<${1:${VISUAL}} \right>$0
-endsnippet
-
-context "math()"
-snippet conj "conjugate" iA
-\overline{$1}$0
-endsnippet
-
 snippet sum "sum" w
 \sum_{i=${1:1}}^{${2:+\infty}} $3
 endsnippet
 
-snippet taylor "taylor" w
-\sum_{${1:k}=${2:0}}^{${3:\infty}} ${4:c_$1} (x-a)^$1 $0
-endsnippet
-
 snippet lim "limit" w
-\lim_{${1:n} \to ${2:\infty}} 
-endsnippet
-
-snippet limsup "limsup" w
-\limsup_{${1:n} \to ${2:\infty}} 
-endsnippet
-
-snippet liminf "liminf" w
-\liminf_{${1:n} \to ${2:\infty}} 
+\lim_{${1:n} \to ${2:+\infty}} 
 endsnippet
 
 context "math()"
 snippet opn "operatore" iA
 \operatorname{$1} $0
-endsnippet
-
-context "math()"
-snippet res "residuo" iA
-\operatorname{Res}\left[$1, $2\right] $0
-endsnippet
-
-snippet sup "sup" w
-\sup_{$1} $0 
-endsnippet
-
-snippet inf "inf" w
-\inf_{$1} $0 
-endsnippet
-
-snippet prod "product" w
-\prod_{${1:n=${2:1}}}^{${3:\infty}} ${4:${VISUAL}} $0
 endsnippet
 
 context "math()"
@@ -1000,30 +350,8 @@ snippet sq "\sqrt{}" iA
 endsnippet
 
 context "math()"
-snippet sqr "^2" iA
-^2
-endsnippet
-
-context "math()"
-snippet cbr "^3" iA
-^3
-endsnippet
-
-context "math()"
 snippet td "to the ... power" iA
 ^{$1}$0
-endsnippet
-
-priority 100
-context "math()"
-snippet ord "ordine" iA
-\operatorname{ord}($1) $0
-endsnippet
-
-priority 10
-context "math()"
-snippet rd "to the ... power" iA
-^{($1)}$0
 endsnippet
 
 snippet __ "subscript" iA
@@ -1032,10 +360,6 @@ endsnippet
 
 snippet ooo "\infty" iA
 \infty
-endsnippet
-
-snippet rij "mrij" i
-(${1:x}_${2:n})_{${3:$2}\\in${4:\\N}}$0
 endsnippet
 
 snippet <= "leq" iA
@@ -1052,11 +376,6 @@ snippet EE "exists" iA
 endsnippet
 
 context "math()"
-snippet nee "not exists" iA
-\not\exists 
-endsnippet
-
-context "math()"
 snippet AA "forall" iA
 \forall 
 endsnippet
@@ -1069,83 +388,6 @@ endsnippet
 context "math()"
 snippet -+ "minusplus" iA
 \mp
-endsnippet
-
-context "math()"
-snippet __ "pedix" iA
-_{$1} $0
-endsnippet
-
-context "math()"
-snippet ^^ "pot" iA
-^{$1} $0
-endsnippet
-
-context "math()"
-snippet xnn "xn" iA
-x_{n}
-endsnippet
-
-context "math()"
-snippet ynn "yn" iA
-y_{n}
-endsnippet
-
-
-context "math()"
-snippet xii "xi" iA
-x_{i}
-endsnippet
-
-context "math()"
-snippet yii "yi" iA
-y_{i}
-endsnippet
-
-context "math()"
-snippet xjj "xj" iA
-x_{j}
-endsnippet
-
-context "math()"
-snippet yjj "yj" iA
-y_{j}
-endsnippet
-
-context "math()"
-snippet xp1 "x" iA
-x_{n+1}
-endsnippet
-
-context "math()"
-snippet xmm "x" iA
-x_{m}
-endsnippet
-
-snippet R0+ "R0+" iA
-\\R_0^+
-endsnippet
-
-snippet plot "Plot" w
-\begin{figure}[$1]
-	\centering
-	\begin{tikzpicture}
-		\begin{axis}[
-			xmin= ${2:-10}, xmax= ${3:10},
-			ymin= ${4:-10}, ymax = ${5:10},
-			axis lines = middle,
-		]
-			\addplot[domain=$2:$3, samples=${6:100}]{$7};
-		\end{axis}
-	\end{tikzpicture}
-	\caption{$8}
-	\label{${9:$8}}
-\end{figure}
-endsnippet
-
-snippet nn "Tikz node" w
-\node[$5] (${1/[^0-9a-zA-Z]//g}${2}) ${3:at (${4:0,0}) }{$${1}$};
-$0
 endsnippet
 
 context "math()"
@@ -1278,23 +520,6 @@ snippet xx "cross" iA
 \times $0
 endsnippet
 
-priority 100
-context "math()"
-snippet rxx "right semi-direct product" iA
-\rtimes $0
-endsnippet
-
-priority 100
-context "math()"
-snippet lxx "left semi-direct product" iA
-\ltimes $0
-endsnippet
-
-priority 100
-snippet ** "cdot" iA
-\cdot $0
-endsnippet
-
 context "math()"
 snippet norm "norm" iA
 \left\lVert $1 \right\rVert $0
@@ -1331,69 +556,15 @@ snippet '(?<!\\)(tan|sin|cos|arccot|cot|csc|ln|log|exp|star|perp)' "ln" rwA
 \\`!p snip.rv = match.group(1)`
 endsnippet
 
-priority 300
-context "math()"
-snippet dint "integral" wA
-\int_{${1:-\infty}}^{${2:\infty}} ${3:${VISUAL}} $0
-endsnippet
-
-priority 400
-context "math()"
-snippet dfint "double average integral" wA
-\fiint_{$1} $0
-endsnippet
-
-priority 400
-context "math()"
-snippet tfint "double average integral" wA
-\fiiint_{$1} $0
-endsnippet
-
-priority 300
-context "math()"
-snippet fint "average integral" wA
-\fint_{$1} $0
-endsnippet
-
 priority 100
 context "math()"
 snippet int "integral" wA
 \int $0
 endsnippet
 
-priority 300
-context "math()"
-snippet oint "integral" wA
-\oint_{$1} $0
-endsnippet
-
 snippet ind "no-indent" b
 \noindent $0
 endsnippet
-
-priority 300
-context "math()"
-snippet iint "integral" wA
-\iint_{$1} $0
-endsnippet
-
-priority 400
-context "math()"
-snippet iiint "integral" wA
-\iiint_{$1} $0
-endsnippet
-
-priority 300
-context "math()"
-snippet II "funzione indicatrice" wA
-\mathbb{I}$0
-endsnippet
-
-context "math()"
-snippet gg "algebra" wA
-\mathfrak{g}$0
-endsnippet
-
 
 priority 200
 context "math()"
@@ -1425,21 +596,6 @@ snippet xraw "adaptive right arrow" iA
 endsnippet
 
 context "math()"
-snippet !> "mapsto" iA
-\mapsto 
-endsnippet
-
-context "math()"
-snippet invs "inverse" iA
-^{-1}
-endsnippet
-
-context "math()"
-snippet compl "complement" iA
-^{c}
-endsnippet
-
-context "math()"
 snippet \\\ "setminus" iA
 \setminus
 endsnippet
@@ -1452,38 +608,13 @@ snippet << "<<" iA
 \ll
 endsnippet
 
-context "math()"
-snippet -~ "~" iA
-\sim 
-endsnippet
-
-context "math()"
-snippet set "set" wA
-\\{$1\\} $0
-endsnippet
-
 snippet || "mid" iA
  \mid 
 endsnippet
 
-
 context "math()"
 snippet cc "subset" Ai
 \subset 
-endsnippet
-
-context "math()"
-snippet ims "immersione" iA
-\longhookrightarrow $0
-endsnippet
-
-context "math()"
-snippet c=c "subset" Ai
-\subseteq 
-endsnippet
-
-snippet notin "not in " iA
-\not\in 
 endsnippet
 
 context "math()"
@@ -1496,44 +627,8 @@ snippet NN "n" iA
 \mathbb{N}
 endsnippet
 
-context "math()"
-snippet FF "f" iA
-\mathbb{F}
-endsnippet
-
-context "math()"
-snippet TT "T" iA
-\mathbb{T}
-endsnippet
-
-snippet Nn "cap" iA
-\cap 
-endsnippet
-
-snippet UU "cup" iA
-\cup 
-endsnippet
-
-snippet uuu "bigcup" iA
-\bigcup_{${1:i \in ${2: I}}} $0
-endsnippet
-
-snippet nnn "bigcap" iA
-\bigcap_{${1:i \in ${2: I}}} $0
-endsnippet
-
 snippet OO "emptyset" iA
 \varnothing
-endsnippet
-
-context "math()"
-snippet KK "field" iA
-\mathbb{K}
-endsnippet
-
-context "math()"
-snippet PP "projective space" iA
-\mathbb{P}
 endsnippet
 
 context "math()"
@@ -1556,20 +651,6 @@ snippet ZZ "Z" iA
 \mathbb{Z}
 endsnippet
 
-snippet <! "normal" iA
-\triangleleft 
-endsnippet
-
-snippet <> "hokje" iA
-\diamond 
-endsnippet
-
-
-context "math()"
-snippet '(?<!i)sts' "text subscript" irA
-_\text{$1} $0
-endsnippet
-
 context "math()"
 snippet tt "text" iA
 \text{$1}$0
@@ -1580,33 +661,6 @@ snippet case "cases" wA
 \begin{cases}
 	$1
 \end{cases}
-endsnippet
-
-snippet bigfun "Big function" iA
-\begin{align*}
-	$1: $2 &\longrightarrow $3 \\\\
-	$4 &\longmapsto $1($4) = $0
-.\end{align*}
-endsnippet
-
-snippet cvec "column vector" iA
-\begin{pmatrix} ${1:x}_${2:1}\\\\ \vdots\\\\ $1_${2:n} \end{pmatrix}
-endsnippet
-
-priority 10
-context "math()"
-snippet "bar" "bar" riA
-\overline{$1} $0
-endsnippet
-
-context "math()"
-snippet "angv" "angle hat" riA
-\widehat{$1} $0
-endsnippet
-
-context "math()"
-snippet varr "vectorarrow" iA
-\overrightarrow{$1}$0
 endsnippet
 
 priority 10
@@ -1648,30 +702,6 @@ priority 100
 context "math()"
 snippet "([a-zA-Z])hat" "hat" riA
 \hat{`!p snip.rv=match.group(1)`}
-endsnippet
-
-snippet letw "let omega" iA
-Let $\Omega \subset \C$ be open.
-endsnippet
-
-
-snippet HH "H" iA
-\mathbb{H}
-endsnippet
-
-snippet DD "D" iA
-\mathbb{D}
-endsnippet
-
-
-snippet graph "grafo" b
-\begin{center}
-\begin{tikzpicture}[main/.style = {draw, circle}] 
-$0
-\end{tikzpicture} 
-\captionof{figure}{$1}
-\label{$2}
-\end{center}
 endsnippet
 
 ## Ambienti matematici
@@ -1789,9 +819,7 @@ snippet htag "reduced h" iA
 \hbar $0
 endsnippet
 
-snippet sfb "sf bold item" iA
-\item {\sffamily \bfseries $1} $0
-endsnippet 
+##############
 
 snippet tfig "testo affianco figura" b 
 \begin{center}
@@ -1828,6 +856,6 @@ endsnippet
 
 ## Notazione chimica
 snippet cee "chemnot" iA
-\ce{^{$1}_{$2}$3_{$4}$5} $0
+\ce{$1} $0
 endsnippet
 
