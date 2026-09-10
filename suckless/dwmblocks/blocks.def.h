@@ -7,10 +7,12 @@ static const char wifi[] = "/home/manuel/.local/bin/wifi.sh";
 static const char bt[] = "/home/manuel/.local/bin/bt.sh";
 static const char sysinfo[] = "/home/manuel/.local/bin/sysinfo.sh";
 static const char netinfo[] = "/home/manuel/.local/bin/netinfo.sh";
+static const char pomodoro[] = "/home/manuel/.local/bin/pomodoro-status.sh";
 static const Block blocks[] = {
 	/*Icon*/	/*Command*/		/*Update Interval*/	/*Update Signal*/
 //	{" 戦え - ",           NULL,                   0,                               0},
-	{" ",                  sysinfo,                2,		    		0},
+	{"",                  pomodoro,               0,                               3},
+	{"",                   sysinfo,                2,		    		0},
 	{"",    	       netinfo,	       	       2,		 		0},
         {"",                   pvol,	               0,		                2},
 	{"",                   pbat,	               2,		                0},

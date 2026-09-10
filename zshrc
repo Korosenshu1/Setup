@@ -133,7 +133,7 @@ preexec() { echo -ne '\e[6 q' ;} # Use beam shape cursor for each new prompt.
 
 ### Aliases ###
 
-alias cp="cp -iv"
+alias cp="cp -v"
 alias mv="mv -iv"
 alias pm="pulsemixer"
 alias bt="bluetoothctl"
@@ -144,6 +144,7 @@ alias fetch="fastfetch"
 ## MAC addresses
 export airpods="5C:1B:F4:07:2D:BD"
 export casse="7C:96:D2:56:99:32"
+export jbl="88:92:CC:77:27:1E"
 
 ## Default editor
 export EDITOR=nvim

@@ -43,7 +43,9 @@ else
     fi
     echo "⚡ $bat_perc%"
 fi
-
+if [ $curr -eq 1 ]; then
+	low_bat_alert=0
+fi
 # Salva i valori aggiornati nel file di stato
 echo "curr=$curr" > "$STATE_FILE"
 echo "low_bat_alert=$low_bat_alert" >> "$STATE_FILE"

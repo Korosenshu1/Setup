@@ -13,7 +13,7 @@ static const unsigned int gappov    = 30;       /* vert outer gap between window
 static       int smartgaps          = 0;        /* 1 means no outer gap when there is only one window */
 static const int showbar            = 1;        /* 0 means no bar */
 static const int topbar             = 1;        /* 0 means bottom bar */
-static const char *fonts[]          = { "Go Mono:size=12:antialias=true:autohint=true", "AppleColorEmoji:size=12:antialias=true:autohint=true", "Noto Sans CJK JP:size=12:antialias=true:autohint=true"};
+static const char *fonts[]          = { "Go mono:size=12:antialias=true:autohint=true", "AppleColorEmoji:size=12:antialias=true:autohint=true", "Noto Sans CJK JP:size=12:antialias=true:autohint=true"};
 static const char dmenufont[]       = "Go Mono:size=12";
 static const char col_gray1[]       = "#222222";
 static const char col_gray2[]       = "#444444";
@@ -41,12 +41,14 @@ static const Rule rules[] = {
 	 *	WM_CLASS(STRING) = instance, class
 	 *	WM_NAME(STRING) = title
 	 */
-	/* class     instance  title           tags mask  isfloating  isterminal  noswallow  monitor */
-	{ "Gimp",    NULL,     NULL,           0,         1,          0,           0,        -1 },
-	{ "Firefox", NULL,     NULL,           1 << 8,    0,          0,          -1,        -1 },
-	{ "st-256color", NULL,      NULL,      0,         0,          1,           0,        -1 },
-	{ "kitty", NULL,      NULL,      0,         0,          1,           0,        -1 },
-	{ NULL,      NULL,     "Event Tester", 0,         0,          0,           1,        -1 }, /* xev */
+	/* class     instance       title      tags mask  isfloating  isterminal  noswallow  monitor */
+	{ "Gimp",        NULL,      NULL,         0,         1,          0,           0,        -1 },
+	{ "Firefox",     NULL,      NULL,       1 << 8,      0,          0,          -1,        -1 },
+	{ "st-256color", NULL,      NULL,         0,         0,          1,           0,        -1 },
+	{ "kitty",       NULL,      NULL,         0,         0,          1,           0,        -1 },
+	{   NULL,        NULL,  "Event Tester",   0,         0,          0,           1,        -1 }, /* xev */
+	{ "st-256color", NULL,   "calpopup",      0,         1,          1,           1,        -1 },
+	{ "st-256color", NULL,   "todopopup",     0,         1,          1,           1,        -1 },
 };
 
 /* layout(s) */
@@ -135,6 +137,10 @@ static const Key keys[] = {
 	// Multimedia buttons for brightness
     	{ 0, 				0x1008ff02,spawn, 	   SHCMD("brightnessctl s +10% && notify-send -u low -h int:value:$(brightnessctl | grep -oP '[0-9]+(?=%)') 'Brightness'") },
     	{ 0, 				0x1008ff03,spawn, 	   SHCMD("brightnessctl s 10%- && notify-send -u low -h int:value:$(brightnessctl | grep -oP '[0-9]+(?=%)') 'Brightness'") },
+	//
+	// Popup calendario e todo
+	{ Mod1Mask,                       XK_c, spawn,             SHCMD("~/.local/bin/calpopup.sh") },
+	{ Mod1Mask,                       XK_l, spawn,             SHCMD("~/.local/bin/todopopup.sh") },
 	//
 	TAGKEYS(                        XK_1,                      0)
 	TAGKEYS(                        XK_2,                      1)
