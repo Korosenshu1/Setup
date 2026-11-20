@@ -2,6 +2,12 @@ nnvim() {
 	nvim ~/.config/nvim/init.vim
 }
 
+## Edits sway settings
+
+ns() {
+	nvim ~/.config/sway/config
+}
+
 ## Edits .zshrc
 
 nzsh() {
@@ -69,36 +75,36 @@ nd() {
 }
 
 ## Fisica
-as() {
-	nvim ~/Documents/Note/Fisica/Astrofisica/master.tex
+fn() {
+	nvim ~/Documents/Note/Fisica/"Fisica nucleare"/master.tex
 }
 
-aas() {
-	cp ~/Documents/Note/Fisica/Astrofisica/master.pdf ~/Documents/"Note di Astrofisica.pdf"
+afn() {
+	cp ~/Documents/Note/Fisica/"Fisica nucleare"/master.pdf ~/Documents/"Note di Fisica nucleare.pdf"
 }
 
-fs() {
-	nvim ~/Documents/Note/Fisica/Fisica\ statistica/master.tex
+fm() {
+	nvim ~/Documents/Note/Fisica/"Fisica medica"/master.tex
 }
 
-afs() {
-	cp ~/Documents/Note/Fisica/Fisica\ statistica/master.pdf ~/Documents/"Note di Fisica statistica.pdf"
+afm() {
+	cp ~/Documents/Note/Fisica/"Fisica medica"/master.pdf ~/Documents/"Note di Fisica medica.pdf"
 }
 
-fd() {
-	nvim ~/Documents/Note/Fisica/Fluidodinamica/master.tex
+irm() {
+	nvim ~/Documents/Note/Fisica/IRM/master.tex
 }
 
-afd() {
-	cp ~/Documents/Note/Fisica/Fluidodinamica/master.pdf ~/Documents/"Note di Fluidodinamica.pdf"
+airm() {
+	cp ~/Documents/Note/Fisica/IRM/master.pdf ~/Documents/"Note di Interazione radiazione-materia.pdf"
 }
 
-cs() {
-	nvim ~/Documents/Note/Fisica/Cosmologia/master.tex
+lab() {
+	nvim ~/Documents/Note/Fisica/Laboratorio/master.tex
 }
 
-acs() {
-	cp ~/Documents/Note/Fisica/Cosmologia/master.pdf ~/Documents/"Note di Cosmologia.pdf"
+alab() {
+	cp ~/Documents/Note/Fisica/Laboratorio/master.pdf ~/Documents/"Note di Laboratorio di Fisica Medica.pdf"
 }
 
 ## Display
