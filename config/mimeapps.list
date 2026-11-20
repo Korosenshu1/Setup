@@ -1,6 +1,4 @@
 [Default Applications]
-x-scheme-handler/logseq=logseq.desktop
-x-scheme-handler/anytype=anytype.desktop
 x-scheme-handler/notion=notion.desktop
 x-scheme-handler/notion-agents=notion.desktop
 
