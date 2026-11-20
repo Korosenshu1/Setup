@@ -1,6 +1,6 @@
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$HOME/.local/bin:/usr/local/bin:$PATH
-
+export PISTOL_CHROMA_FORMATTER=terminal16m
 # Path to your Oh My Zsh installation.
 export ZSH="$HOME/.oh-my-zsh"
 
@@ -149,3 +149,270 @@ export jbl="88:92:CC:77:27:1E"
 ## Default editor
 export EDITOR=nvim
 export VISUAL=nvim
+
+
+export PATH="$HOME/.local/bin:$PATH"
+
+# ============================================================
+# Proton Drive pseudo-shell
+# ============================================================
+
+typeset -g PD_CWD="/my-files"
+
+# ------------------------------------------------------------
+# Risolve un percorso remoto relativo a PD_CWD
+# ------------------------------------------------------------
+
+_pd_resolve() {
+    local target="${1:-.}"
+    local resolved
+
+    if [[ "$target" == /* ]]; then
+        resolved="$(realpath -m -- "$target")"
+    else
+        resolved="$(realpath -m -- "$PD_CWD/$target")"
+    fi
+
+    case "$resolved" in
+        /my-files|/my-files/*)
+            REPLY="$resolved"
+            ;;
+        *)
+            print -u2 "Errore: percorso fuori da /my-files"
+            return 1
+            ;;
+    esac
+}
+
+# ------------------------------------------------------------
+# Mostra directory remota corrente
+# ------------------------------------------------------------
+
+pdpwd() {
+    print -r -- "$PD_CWD"
+}
+
+# ------------------------------------------------------------
+# Cambia directory remota
+# ------------------------------------------------------------
+
+pdc() {
+    if (( $# == 0 )); then
+        pdpwd
+        return
+    fi
+
+    _pd_resolve "$1" || return
+    PD_CWD="$REPLY"
+
+    print -r -- "$PD_CWD"
+}
+
+# ------------------------------------------------------------
+# Lista directory corrente
+# ------------------------------------------------------------
+
+pdl() {
+    local target="${1:-.}"
+
+    _pd_resolve "$target" || return
+    proton-drive filesystem list "$REPLY"
+}
+
+# ------------------------------------------------------------
+# Download
+# ------------------------------------------------------------
+
+pdget() {
+    if (( $# == 0 )); then
+        print -u2 "Uso: pdget FILE [DESTINAZIONE]"
+        return 1
+    fi
+
+    _pd_resolve "$1" || return
+    proton-drive filesystem download "$REPLY" "${2:-.}"
+}
+
+# ------------------------------------------------------------
+# Upload
+# ------------------------------------------------------------
+
+pdput() {
+    if (( $# == 0 )); then
+        print -u2 "Uso: pdput FILE_LOCALE [CARTELLA_REMOTA]"
+        return 1
+    fi
+
+    local destination="${2:-.}"
+
+    _pd_resolve "$destination" || return
+    proton-drive filesystem upload "$1" "$REPLY"
+}
+
+# ============================================================
+# Autocompletamento Proton Drive
+# ============================================================
+
+_pd_complete_remote() {
+    local current="$1"
+    local mode="$2"
+
+    local parent
+    local prefix
+    local display_prefix=""
+    local remote_dir
+
+    # ----------------------------------------
+    # Percorso assoluto
+    # ----------------------------------------
+
+    if [[ "$current" == /* ]]; then
+
+        parent="${current%/*}"
+        prefix="${current##*/}"
+
+        [[ -z "$parent" ]] && parent="/"
+
+        remote_dir="$parent"
+
+        display_prefix="${parent}/"
+
+    # ----------------------------------------
+    # Percorso relativo con sottocartella
+    # ----------------------------------------
+
+    elif [[ "$current" == */* ]]; then
+
+        parent="${current%/*}"
+        prefix="${current##*/}"
+
+        _pd_resolve "$parent" || return
+
+        remote_dir="$REPLY"
+
+        display_prefix="${parent}/"
+
+    # ----------------------------------------
+    # Nome semplice
+    # ----------------------------------------
+
+    else
+
+        parent="."
+        prefix="$current"
+
+        remote_dir="$PD_CWD"
+
+        display_prefix=""
+
+    fi
+
+    # ----------------------------------------
+    # Interroga Proton Drive
+    # ----------------------------------------
+
+    local json
+
+    json="$(proton-drive filesystem list -j "$remote_dir" 2>/dev/null)" ||
+        return
+
+    # ----------------------------------------
+    # Estrae nome e tipo dal JSON
+    # ----------------------------------------
+
+    local -a candidates
+    candidates=()
+
+    while IFS=$'\t' read -r name type; do
+
+        [[ -z "$name" ]] && continue
+
+        # Filtra ciò che è già stato digitato
+        [[ "$name" == "$prefix"* ]] || continue
+
+        # pdc: solo directory
+        if [[ "$mode" == "dirs" && "$type" != "folder" ]]; then
+            continue
+        fi
+
+        # Aggiunge / alle directory
+        local candidate="$name"
+
+        if [[ "$type" == "folder" ]]; then
+            candidate="${candidate}/"
+        fi
+
+        candidate="${display_prefix}${candidate}"
+
+        candidates+=("$candidate")
+
+    done < <(
+        printf '%s\n' "$json" |
+            jq -r '
+                ..
+                | objects
+                | select(
+                    (.type? == "file" or .type? == "folder")
+                    and (.name? != null)
+                )
+                | [
+                    (.name.value // .name),
+                    .type
+                  ]
+                | @tsv
+            ' 2>/dev/null
+    )
+
+    (( ${#candidates[@]} )) || return
+
+    compadd -- "${candidates[@]}"
+}
+
+# ------------------------------------------------------------
+# pdc → solo directory
+# ------------------------------------------------------------
+
+_pd_complete_pdc() {
+    _pd_complete_remote "$words[CURRENT]" "dirs"
+}
+
+# ------------------------------------------------------------
+# pdl → file + directory
+# ------------------------------------------------------------
+
+_pd_complete_pdl() {
+    _pd_complete_remote "$words[CURRENT]" "both"
+}
+
+# ------------------------------------------------------------
+# pdget → file + directory
+# ------------------------------------------------------------
+
+_pd_complete_pdget() {
+    # Primo argomento = percorso remoto
+    if (( CURRENT == 2 )); then
+        _pd_complete_remote "$words[CURRENT]" "both"
+    fi
+}
+
+# ------------------------------------------------------------
+# pdput → secondo argomento = destinazione remota
+# ------------------------------------------------------------
+
+_pd_complete_pdput() {
+    if (( CURRENT == 3 )); then
+        _pd_complete_remote "$words[CURRENT]" "dirs"
+    fi
+}
+
+# ============================================================
+# Attiva completion
+# ============================================================
+
+autoload -Uz compinit
+compinit
+
+compdef _pd_complete_pdc pdc
+compdef _pd_complete_pdl pdl
+compdef _pd_complete_pdget pdget
+compdef _pd_complete_pdput pdput

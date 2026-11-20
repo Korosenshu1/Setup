@@ -1,0 +1,45 @@
+# Indicatore
+indicator-idle-visible
+indicator-radius=72
+indicator-thickness=6
+
+# Font
+font=JetBrains Mono
+font-size=28
+
+# Colori base — Nord
+inside-color=2E3440CC
+ring-color=88C0D0FF
+line-color=00000000
+separator-color=00000000
+text-color=ECEFF4FF
+
+# Pressione tasto
+key-hl-color=8FBCBBFF
+bs-hl-color=BF616AFF
+
+# Verifica password
+inside-ver-color=A3BE8CCC
+ring-ver-color=A3BE8CFF
+text-ver-color=ECEFF4FF
+line-ver-color=00000000
+
+# Password errata
+inside-wrong-color=BF616ACC
+ring-wrong-color=BF616AFF
+text-wrong-color=ECEFF4FF
+line-wrong-color=00000000
+
+# Campo svuotato
+inside-clear-color=EBCB8BCC
+ring-clear-color=EBCB8BFF
+text-clear-color=2E3440FF
+line-clear-color=00000000
+
+# Caps Lock
+inside-caps-lock-color=D08770CC
+ring-caps-lock-color=D08770FF
+line-caps-lock-color=00000000
+
+# Mostra il numero di tentativi falliti
+show-failed-attempts

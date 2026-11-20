@@ -1,0 +1,42 @@
+{
+  "lineare": {
+    "legge": "a + b*x",
+    "descrizione": "retta (es. calibrazione)"
+  },
+  "quadratica": {
+    "legge": "a + b*x + c*x**2",
+    "descrizione": "parabola (calibrazione non lineare)"
+  },
+  "gauss": {
+    "legge": "A*exp(-(x-mu)**2/(2*s**2))",
+    "descrizione": "gaussiana"
+  },
+  "gauss_lin": {
+    "legge": "A*exp(-(x-mu)**2/(2*s**2)) + p0 + p1*(x-mu)",
+    "descrizione": "fotopicco su fondo lineare"
+  },
+  "gauss_coda": {
+    "legge": "A*exp(-(x-mu)**2/(2*s**2)) + T*exp((x-mu)/b + s**2/(2*b**2))*erfc((x-mu)/(sqrt(2)*s) + s/(sqrt(2)*b)) + p0 + p1*(x-mu)",
+    "descrizione": "fotopicco con coda esponenziale a sinistra su fondo lineare"
+  },
+  "esponenziale": {
+    "legge": "A*exp(-x/tau) + c",
+    "descrizione": "decadimento / attenuazione"
+  },
+  "potenza": {
+    "legge": "a*x**b",
+    "descrizione": "legge di potenza"
+  },
+  "risoluzione": {
+    "legge": "sqrt(a + b*x + c*x**2)",
+    "descrizione": "FWHM in funzione dell'energia"
+  },
+  "efficienza": {
+    "legge": "exp(a + b*log(x) + c*log(x)**2)",
+    "descrizione": "efficienza vs energia (log-quadratica)"
+  },
+  "double_gauss_lin": {
+    "legge": "A*exp(-(x-mu)**2/(2*s**2)) + B*exp(-(x-U)**2/(2*V**2))  + p0 + p1*(x-mu)",
+    "descrizione": "Doppia gaussiana e fondo lineare"
+  }
+}

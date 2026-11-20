@@ -1,0 +1,8 @@
+configuration {
+    timeout {
+        delay: 3;
+        action: "kb-custom-1";
+    }
+}
+
+@theme "/usr/share/rofi/themes/android_notification.rasi"

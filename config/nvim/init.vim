@@ -7,9 +7,9 @@ Plug 'lervag/vimtex'
 
 Plug 'sirver/ultisnips'
 
-" Plug 'arcticicestudio/nord-vim'
+Plug 'arcticicestudio/nord-vim'
 
-Plug 'ellisonleao/gruvbox.nvim'
+" Plug 'ellisonleao/gruvbox.nvim'
 
 call plug#end()
 
@@ -24,10 +24,10 @@ call plug#end()
     let g:vimtex_quickfix_mode=0
 
 " Autosave
-"autocmd TextChanged,TextChangedI *
-"    \ if &buftype ==# '' || &buftype == 'acwrite' |
-"    \     silent write |
-"    \ endif
+autocmd TextChanged,TextChangedI *
+    \ if &buftype ==# '' || &buftype == 'acwrite' |
+    \     silent write |
+    \ endif
 
 " Numbers on the side    
 set number relativenumber
@@ -38,7 +38,7 @@ set spelllang=en_us
 set spelllang+=it
 
 " Col 
-colorscheme gruvbox
+colorscheme nord
 
 " Opens a new terminal tab
 nnoremap tt :term<cr>

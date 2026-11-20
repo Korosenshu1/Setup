@@ -1,0 +1,137 @@
+{
+	"position": "top",
+	"exclusive": true,
+	"height": 30,
+	"spacing": 0,
+	"reload_style_on_change": true,
+	
+	"modules-left": [
+		"sway/workspaces",
+		"sway/mode",
+		"sway/scratchpad",
+		"sway/window"
+	],
+	"modules-center": [
+		"tray",
+		"custom/timer"
+	],
+	"modules-right": [
+		//"cpu",
+		//"memory",
+		"pulseaudio",
+		"bluetooth",
+		"network",
+		"battery",
+		"clock"
+	],
+
+	"custom/timer": {
+	    "exec": "~/.config/waybar/scripts/timer.sh",
+	    "return-type": "json",
+	    "format": "{}",
+	    "on-click": "~/.config/waybar/scripts/timer.sh click",
+	    "on-click-right": "~/.config/waybar/scripts/timer.sh right",
+	    "on-click-middle": "~/.config/waybar/scripts/timer.sh middle",
+	    "on-scroll-up": "~/.config/waybar/scripts/timer.sh down",
+	    "on-scroll-down": "~/.config/waybar/scripts/timer.sh up",
+	    "tooltip": true,
+	    "escape": true
+	},
+
+	"battery": {
+	    "interval": 5,
+	    "format": "󰁹 {capacity}%",
+	    "format-charging": "󰂄 {capacity}%",
+	    "tooltip": true,
+	    "tooltip-format": "{capacity}% — {timeTo}",
+	    "states": {
+		"warning": 30,
+		"critical": 15
+	    }
+	},
+
+	"clock": {
+		"interval": 1,
+		"format": "{:%A %d (%b)  %H:%M:%S}",
+		"tooltip": false
+	},
+
+	"cpu": {
+		"interval": 1,
+		"format": "  {usage}%"
+	},
+
+	"memory": {
+		"interval": 1,
+		"format": " {used}G"
+	},
+
+	"network": {
+		"interval": 1,
+		"format-disconnected": "󰈂 No Signal",
+		"format-wifi": " ",
+		"format-ethernet": "󰈁",
+		"on-click": "~/.config/waybar/wifi-menu.sh",
+		"tooltip": true,
+		"tooltip-format": "{essid}: 󰜹 {bandwidthUpBytes}  󰜰 {bandwidthDownBytes}"
+	},
+
+	"bluetooth": {
+		"format-on": "",
+		"format-off": "󰂲",
+		"format-connected": "󰂯",
+		"format-connected-battery": "󰥉 {device_battery_percentage}%",
+		"tooltip-format": "{controller_alias}\t{controller_address}\n\n{num_connections} connected",
+		"tooltip-format-connected": "{controller_alias}\t{controller_address}\n\n{num_connections} connected\n\n{device_enumerate}",
+		"tooltip-format-enumerate-connected": "{device_alias}\t{device_address}",
+		"tooltip-format-enumerate-connected-battery": "{device_alias}\t{device_address}\t{device_battery_percentage}%",
+		"on-click": "~/.config/waybar/bluetooth-menu.sh",
+		"on-click-right": "bluetoothctl power off"
+	},
+
+	"pulseaudio": {
+		"reverse-mouse-scrolling": true,
+		"scroll-step": 10,
+		"format": "󰕾 {volume}% {format_source}",
+		"format-bluetooth": "󰋋 {volume}% {format_source}",
+		"format-bluetooth-muted": "󰟎 {format_source}",
+		"format-muted": " {format_source}",
+		"format-source": " {volume}%",
+		"format-source-muted": "  ",
+		"format-icons": {
+		    "headphone": "",
+		    "hands-free": "",
+		    "headset": "",
+		    "phone": "",
+		    "portable": "",
+		    "car": "",
+		    "default": ["", "", ""]
+		},
+		"on-click-right": "wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle",
+		"on-click": "pwvucontrol"
+	},
+
+
+	"tray": {
+		"icon-size": 20,
+		"spacing": 10
+	},
+
+	"sway/scratchpad": {
+		"format": "{icon} {count}",
+		"show-empty": false,
+		"format-icons": ["", " "],
+		"tooltip": true,
+		"tooltip-format": "{app}: {title}"
+	},
+
+	"sway/mode": {
+		"format": "[{}]",
+		"tooltip": false
+	},
+
+	"sway/window": {
+		"format": "{}",
+		"max-length": 40
+	}
+}

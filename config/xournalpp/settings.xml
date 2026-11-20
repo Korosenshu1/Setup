@@ -5,17 +5,17 @@
   <property name="minimumPressure" value="0.05"/>
   <property name="pressureMultiplier" value="1"/>
   <property name="zoomGesturesEnabled" value="true"/>
-  <property name="selectedToolbar" value="Portrait"/>
-  <property name="lastSavePath" value="/home/manuel/Documents/xournal"/>
-  <property name="lastOpenPath" value="/home/manuel/Documents/xournal"/>
-  <property name="lastImagePath" value="/home/manuel/Pictures"/>
+  <property name="selectedToolbar" value="Portrait Copy"/>
+  <property name="lastSavePath" value="/home/manuel/Materiale corsi"/>
+  <property name="lastOpenPath" value="/home/manuel/Materiale corsi"/>
+  <property name="lastImagePath" value=""/>
   <property name="edgePanSpeed" value="20"/>
   <property name="edgePanMaxMult" value="5"/>
   <property name="zoomStep" value="10"/>
   <property name="zoomStepScroll" value="2"/>
-  <property name="displayDpi" value="72"/>
-  <property name="mainWndWidth" value="1854"/>
-  <property name="mainWndHeight" value="989"/>
+  <property name="displayDpi" value="-1"/>
+  <property name="mainWndWidth" value="1870"/>
+  <property name="mainWndHeight" value="1000"/>
   <property name="maximized" value="false"/>
   <property name="showToolbar" value="true"/>
   <property name="showSidebar" value="false"/>
@@ -23,7 +23,7 @@
   <property name="sidebarNumberingStyle" value="1"/>
   <property name="sidebarOnRight" value="false"/>
   <property name="scrollbarOnLeft" value="false"/>
-  <property name="menubarVisible" value="true"/>
+  <property name="menubarVisible" value="false"/>
   <property name="filepathShownInTitlebar" value="false"/>
   <property name="pageNumberShownInTitlebar" value="false"/>
   <property name="numColumns" value="1"/>
@@ -89,10 +89,10 @@
   <property name="recolor.sidebar" value="false"/>
   <property name="recolor.dark" value="4281349190"/>
   <property name="recolor.light" value="4291219701"/>
-  <property name="selectionBorderColor" value="4286019195"/>
-  <property name="backgroundColor" value="4278190080"/>
-  <property name="selectionMarkerColor" value="4292795866"/>
-  <property name="activeSelectionColor" value="4286381056"/>
+  <property name="selectionBorderColor" value="4292402921"/>
+  <property name="backgroundColor" value="4281218112"/>
+  <property name="selectionMarkerColor" value="4292402921"/>
+  <property name="activeSelectionColor" value="4287610043"/>
   <property name="touchZoomStartThreshold" value="0"/>
   <property name="pageRerenderThreshold" value="5"/>
   <!--The count of rendered PDF pages which will be cached.-->
@@ -101,8 +101,8 @@
   <property name="preloadPagesAfter" value="5"/>
   <property name="eagerPageCleanup" value="true"/>
   <!--Config for new pages-->
-  <property name="pageTemplate" value="xoj/template&#10;copyLastPageSize=false&#10;copyLastPageSettings=true&#10;size=595.275591x841.889764&#10;backgroundType=graph&#10;backgroundColor=#000000&#10;"/>
-  <property name="sizeUnit" value=""/>
+  <property name="pageTemplate" value="xoj/template&#10;copyLastPageSize=false&#10;copyLastPageSettings=true&#10;size=595.275591x841.889764&#10;backgroundType=graph&#10;backgroundColor=#2e3440&#10;"/>
+  <property name="sizeUnit" value="cm"/>
   <property name="audioFolder" value=""/>
   <property name="audioInputDevice" value="-1"/>
   <property name="audioOutputDevice" value="-1"/>
@@ -135,12 +135,12 @@
   <property name="stabilizerMass" value="5"/>
   <property name="stabilizerCuspDetection" value="true"/>
   <property name="stabilizerFinalizeStroke" value="true"/>
-  <property name="colorPalette" value="/usr/share/xournalpp/palettes/xournal.gpl"/>
+  <property name="colorPalette" value="/usr/share/xournalpp/palettes/xournalpp.gpl"/>
   <property name="latexSettings.autoCheckDependencies" value="true"/>
   <property name="latexSettings.defaultText" value="x^2"/>
   <property name="latexSettings.globalTemplatePath" value="/usr/share/xournalpp/resources/default_template.tex"/>
   <property name="latexSettings.genCmd" value="pdflatex -halt-on-error -interaction=nonstopmode '{}'"/>
-  <property name="latexSettings.sourceViewThemeId" value=""/>
+  <property name="latexSettings.sourceViewThemeId" value="classic"/>
   <property name="latexSettings.editorFont" value="Monospace 12"/>
   <property name="latexSettings.useCustomEditorFont" value="false"/>
   <property name="latexSettings.editorWordWrap" value="true"/>
@@ -151,7 +151,7 @@
   <property name="latexSettings.externalEditorAutoConfirm" value="false"/>
   <property name="latexSettings.externalEditorCmd" value=""/>
   <property name="latexSettings.temporaryFileExt" value="tex"/>
-  <property name="font" font="Sans" size="12"/>
+  <property name="font" font="Sans" size="13"/>
   <data name="buttonConfig">
     <data name="default">
       <attribute name="color" type="hex" value="ff000000"/>
@@ -187,75 +187,32 @@
     </data>
   </data>
   <data name="deviceClasses">
-    <data name="Compx 2.4G Receiver Mouse">
-      <attribute name="deviceClass" type="int" value="1"/>
+    <data name="">
+      <attribute name="deviceClass" type="int" value="0"/>
       <attribute name="deviceSource" type="int" value="0"/>
     </data>
-    <data name="Elan Touchpad">
+    <data name="Wayland Finger Scrolling">
       <attribute name="deviceClass" type="int" value="1"/>
       <attribute name="deviceSource" type="int" value="6"/>
     </data>
-    <data name="Elan TrackPoint">
-      <attribute name="deviceClass" type="int" value="1"/>
-      <attribute name="deviceSource" type="int" value="7"/>
-    </data>
-    <data name="HUION Huion Tablet_HS64 Pad">
-      <attribute name="deviceClass" type="int" value="0"/>
-      <attribute name="deviceSource" type="int" value="8"/>
-    </data>
-    <data name="HUION Huion Tablet_HS64 Pen (0)">
-      <attribute name="deviceClass" type="int" value="2"/>
-      <attribute name="deviceSource" type="int" value="1"/>
-    </data>
-    <data name="HUION Huion Tablet_HS64 Pen Pen (0)">
-      <attribute name="deviceClass" type="int" value="2"/>
-      <attribute name="deviceSource" type="int" value="1"/>
-    </data>
-    <data name="Logitech USB Receiver Consumer Control">
-      <attribute name="deviceClass" type="int" value="1"/>
-      <attribute name="deviceSource" type="int" value="0"/>
-    </data>
-    <data name="Logitech USB Receiver Mouse">
-      <attribute name="deviceClass" type="int" value="1"/>
-      <attribute name="deviceSource" type="int" value="0"/>
-    </data>
-    <data name="Razer Razer Viper Ultimate Dongle">
-      <attribute name="deviceClass" type="int" value="1"/>
-      <attribute name="deviceSource" type="int" value="0"/>
-    </data>
-    <data name="Razer Razer Viper Ultimate Dongle Keyboard">
+    <data name="Wayland Pointer">
       <attribute name="deviceClass" type="int" value="1"/>
       <attribute name="deviceSource" type="int" value="0"/>
     </data>
   </data>
   <data name="tools">
-    <attribute name="current" type="string" value="pen"/>
-    <data name="drawArrow">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
-    <data name="drawCoordinateSystem">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
-    <data name="drawDoubleArrow">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
-    <data name="drawEllipse">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
-    <data name="drawRect">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
-    <data name="drawSpline">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
+    <attribute name="current" type="string" value="text"/>
+    <data name="drawArrow"/>
+    <data name="drawCoordinateSystem"/>
+    <data name="drawDoubleArrow"/>
+    <data name="drawEllipse"/>
+    <data name="drawRect"/>
+    <data name="drawSpline"/>
     <data name="eraser">
-      <attribute name="drawingType" type="string" value="default"/>
       <attribute name="size" type="string" value="MEDIUM"/>
       <attribute name="type" type="string" value="default"/>
     </data>
-    <data name="hand">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
+    <data name="hand"/>
     <data name="highlighter">
       <attribute name="color" type="hex" value="ffffff00"/>
       <attribute name="drawingType" type="string" value="default"/>
@@ -263,63 +220,40 @@
       <attribute name="fillAlpha" type="int" value="128"/>
       <attribute name="size" type="string" value="MEDIUM"/>
     </data>
-    <data name="image">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
+    <data name="image"/>
     <data name="laserPointerHighlighter">
       <attribute name="color" type="hex" value="ffff0000"/>
-      <attribute name="drawingType" type="string" value="default"/>
       <attribute name="size" type="string" value="MEDIUM"/>
     </data>
     <data name="laserPointerPen">
       <attribute name="color" type="hex" value="ffff0000"/>
-      <attribute name="drawingType" type="string" value="default"/>
       <attribute name="size" type="string" value="MEDIUM"/>
     </data>
     <data name="pen">
-      <attribute name="color" type="hex" value="ffffff"/>
+      <attribute name="color" type="hex" value="ff3333cc"/>
       <attribute name="drawingType" type="string" value="default"/>
       <attribute name="fill" type="int" value="0"/>
       <attribute name="fillAlpha" type="int" value="128"/>
-      <attribute name="size" type="string" value="THIN"/>
+      <attribute name="size" type="string" value="MEDIUM"/>
       <attribute name="style" type="string" value="plain"/>
     </data>
-    <data name="playObject">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
-    <data name="selectMultiLayerRect">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
-    <data name="selectMultiLayerRegion">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
-    <data name="selectObject">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
+    <data name="playObject"/>
+    <data name="selectMultiLayerRect"/>
+    <data name="selectMultiLayerRegion"/>
+    <data name="selectObject"/>
     <data name="selectPdfTextLinear">
       <attribute name="color" type="hex" value="ff000000"/>
-      <attribute name="drawingType" type="string" value="default"/>
     </data>
     <data name="selectPdfTextRect">
       <attribute name="color" type="hex" value="ff000000"/>
-      <attribute name="drawingType" type="string" value="default"/>
     </data>
-    <data name="selectRect">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
-    <data name="selectRegion">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
-    <data name="showFloatingToolbox">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
+    <data name="selectRect"/>
+    <data name="selectRegion"/>
+    <data name="showFloatingToolbox"/>
     <data name="text">
-      <attribute name="color" type="hex" value="ff000000"/>
-      <attribute name="drawingType" type="string" value="default"/>
+      <attribute name="color" type="hex" value="ffed5353"/>
     </data>
-    <data name="verticalSpace">
-      <attribute name="drawingType" type="string" value="default"/>
-    </data>
+    <data name="verticalSpace"/>
   </data>
   <data name="touch">
     <attribute name="cmdDisable" type="string" value=""/>

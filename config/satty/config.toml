@@ -1,0 +1,6 @@
+[general]
+early-exit = ["save", "save-as"]
+fullscreen = false
+floating-hack = true
+
+output-filename = "~/Pictures/screenshot-%Y-%m-%d_%H-%M-%S.png"

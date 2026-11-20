@@ -1,0 +1,23 @@
+#!/bin/sh
+
+swaylock -f \
+	--screenshots \
+	--indicator \
+	--indicator-radius 100 \
+	--indicator-thickness 8 \
+	--clock \
+	--effect-blur 7x5 \
+	--inside-color 2E3440 \
+	--ring-color 81a1c1 \
+	--line-color 000000 \
+	--separator-color 262A32 \
+	--text-color ECEFF4\
+	--key-hl-color b48ead \
+	--bs-hl-color bf616a \
+	--inside-ver-color a3be8cCC \
+	--ring-ver-color a3be8c \
+	--inside-clear-color ebcb8bCC \
+	--ring-clear-color ebcb8b \
+	--inside-wrong-color BF616ACC \
+	--ring-wrong-color BF616A
+
